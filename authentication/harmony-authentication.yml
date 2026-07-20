@@ -1,0 +1,29 @@
+generated: '2026-07-19'
+method: searched
+source: openapi/harmony-service-desk-openapi.json
+docs: https://docs.harmony.io/api-references/api-documentation/introduction
+summary:
+  types:
+  - http
+  - apiKey
+  api_key_in:
+  - header
+  notes: >-
+    The published OpenAPI declares a single HTTP bearer scheme (HTTPBearer). The developer docs
+    document the live scheme as an AccessKey token passed in the Authorization header
+    (`Authorization: AccessKey <token>`). Tokens are generated per organization under
+    Settings > API Keys and are shown once. The API base URL is per-tenant:
+    https://<customer_subdomain>.harmony.io.
+schemes:
+- name: HTTPBearer
+  type: http
+  scheme: bearer
+  sources:
+  - openapi/harmony-service-desk-openapi.json
+- name: AccessKey
+  type: apiKey
+  in: header
+  parameter_name: Authorization
+  format: 'AccessKey <token>'
+  source: https://docs.harmony.io/api-references/api-documentation/introduction
+  provisioning: Settings > API Keys > Generate New API Key (shown once)
