@@ -1,0 +1,12 @@
+generated: '2026-07-19'
+method: generated
+source: openapi/harmony-service-desk-openapi.json
+skills:
+- file: harmony-create-and-triage-ticket.md
+  name: Create and triage an IT ticket
+  api: openapi/harmony-service-desk-openapi.json
+  operations: [createTicket, getTicketByID, updateTicket, getTicketActivity]
+- file: harmony-query-and-bulk-update-tickets.md
+  name: Query and bulk-update tickets
+  api: openapi/harmony-service-desk-openapi.json
+  operations: [queryTickets, bulkUpdateTickets, getTicketCustomFields, setTicketCustomFields]

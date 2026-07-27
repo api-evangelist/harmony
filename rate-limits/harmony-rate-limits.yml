@@ -1,0 +1,20 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.harmony.io/api-references/api-documentation/introduction
+scope: per-token
+limits:
+- window: minute
+  limit_count: 100
+- window: hour
+  limit_count: 1000
+headers:
+- name: X-RateLimit-Limit
+  description: Maximum requests allowed in the current window.
+- name: X-RateLimit-Remaining
+  description: Remaining requests in the current window.
+- name: X-RateLimit-Reset
+  description: Unix timestamp when the rate limit window resets.
+notes: >-
+  Rate limits are documented for the public Service Desk API. Exceeding the limit is signalled via
+  the X-RateLimit-* response headers; a 429 response is expected on exhaustion (not enumerated in
+  the published OpenAPI, which lists only 422 validation errors).

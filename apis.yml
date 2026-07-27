@@ -1,23 +1,115 @@
 aid: harmony
 name: Harmony
-description: Harmony is a company surfaced as a portfolio company of lightspeed-venture-partners and added
-  to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+description: >-
+  Harmony is an agentic enterprise service management (ESM) platform that gives every employee an
+  always-on AI expert for IT, HR, finance, procurement, and legal service requests inside Slack and
+  Microsoft Teams. Its AI agents autonomously resolve requests — password and MFA resets, application
+  access, device recovery, employee onboarding and offboarding — using a context graph that connects
+  each employee's identity, devices, applications, and history, often resolving issues before a ticket
+  is opened. Harmony exposes a public REST Service Desk API for programmatically listing, creating,
+  updating, querying, and bulk-updating tickets along with their custom fields and activity history.
+  Founded in 2025 by Nitzan Shapira and Ran Ribenzaft and backed by Lightspeed Venture Partners.
 url: https://raw.githubusercontent.com/api-evangelist/harmony/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - lightspeed-venture-partners
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: profiled
+x-tier-reason: real-api-provider
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://harmony.io/favicon.ico
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
+- IT Service Management
+- Service Desk
+- Ticketing
+- Enterprise Service Management
+- AI Agents
+- IT Automation
+- Help Desk
+- Identity
 - Company
-apis: []
+apis:
+- aid: harmony:harmony-tickets-api
+  name: Harmony tickets API
+  description: The tickets API from Harmony — 6 operation(s) for tickets.
+  humanURL: https://docs.harmony.io/api-references/api-documentation/introduction
+  baseURL: https://api.harmony.io/service-desk
+  tags:
+  - tickets
+  properties:
+  - type: OpenAPI
+    url: openapi/harmony-tickets-api-openapi.yml
+  - type: Authentication
+    url: authentication/harmony-authentication.yml
+  - type: ErrorCatalog
+    url: errors/harmony-problem-types.yml
+  - type: DataModel
+    url: data-model/harmony-data-model.yml
+  - type: Conventions
+    url: conventions/harmony-conventions.yml
+  - type: RateLimits
+    url: rate-limits/harmony-rate-limits.yml
+  - type: Conformance
+    url: conformance/harmony-conformance.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+common:
+- type: DomainSecurity
+  url: security/harmony-domain-security.yml
+- type: DeveloperPortal
+  url: https://docs.harmony.io/
+- type: Documentation
+  url: https://docs.harmony.io/
+- type: APIReference
+  url: https://docs.harmony.io/api-references/api-documentation/introduction
+- type: GettingStarted
+  url: https://docs.harmony.io/getting-started/welcome
+- type: Support
+  url: mailto:support@harmony.io
+- type: Blog
+  url: https://harmony.io/blog
+- type: GitHubOrganization
+  url: https://github.com/harmonyso
+- type: TermsOfService
+  url: https://harmony.io/terms
+- type: PrivacyPolicy
+  url: https://harmony.io/privacy
+- type: StatusPage
+  url: https://status.harmony.io/
+- type: TrustCenter
+  url: https://trust.harmony.io/
+- type: LLMsTxt
+  url: llms/harmony-llms.txt
+- type: Lifecycle
+  url: lifecycle/harmony-lifecycle.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Arazzo
+  name: Create and triage an IT ticket
+  url: arazzo/harmony-create-and-triage-ticket.yml
+- type: AgenticAccess
+  url: agentic-access/harmony-agentic-access.yml
+- type: Authentication
+  url: authentication/harmony-authentication.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

@@ -1,0 +1,155 @@
+# Harmony
+
+## Guides
+
+- [Welcome to Harmony](https://docs.harmony.io/getting-started/welcome.md): Your guide to Harmony's AI-powered IT service management platform
+- [Getting Started](https://docs.harmony.io/getting-started/getting-started-with-harmony-dashboard.md): Learn the basics of Harmony Dashboard, including key features, system requirements, and how to access and navigate the platform for the first time.
+- [Navigating the Interface](https://docs.harmony.io/getting-started/navigating-the-interface.md): Master the Harmony Dashboard interface with the sidebar, command palette, keyboard shortcuts, and navigation features.
+- [Managing Your Profile and Preferences](https://docs.harmony.io/getting-started/managing-your-profile-and-preferences.md): Customize your Harmony Dashboard experience by managing your profile, preferences, theme, and desk visibility.
+- [Understanding User Roles and Permissions](https://docs.harmony.io/getting-started/understanding-user-roles-and-permissions.md): Understand the different user roles and permissions in Harmony Dashboard, including platform roles, desk roles, and how they affect feature access.
+- [Creating and Managing Custom Dashboards](https://docs.harmony.io/dashboard-and-analytics/creating-and-managing-custom-dashboards.md): Learn how to create, navigate, duplicate, rename, and manage custom dashboards in Harmony.
+- [Working with Dashboard Widgets](https://docs.harmony.io/dashboard-and-analytics/working-with-dashboard-widgets.md): Learn how to add, configure, arrange, and customize dashboard widgets in Harmony.
+- [Analyzing Service Desk Metrics](https://docs.harmony.io/dashboard-and-analytics/analyzing-service-desk-metrics.md): Understand and interpret service desk metrics in the Harmony Dashboard: ticket volume, response and resolution times, SLA compliance, and ticket breakdowns.
+- [Analyzing Asset and Automation Metrics](https://docs.harmony.io/dashboard-and-analytics/analyzing-asset-and-automation-metrics.md): Understand asset compliance, software status, AI resolution, agent runs, and workflow metrics in the Harmony Dashboard.
+- [Understanding Service Desk and Managing Tickets](https://docs.harmony.io/service-desk-and-tickets/understanding-service-desk-and-managing-tickets.md): Learn how to use the Harmony Service Desk to create tickets, manage conversations, assign work, use canned responses, and track SLA.
+- [Organizing Tickets and Table Views](https://docs.harmony.io/service-desk-and-tickets/organizing-tickets-and-table-views.md): Learn how to filter, search, sort, and manage ticket views and table columns in the Harmony Service Desk.
+- [Managing People](https://docs.harmony.io/people-management/managing-people.md): Learn how to use the People directory to search, filter, view employee profiles, manage accounts, and export data.
+- [Managing Asset Views and Details](https://docs.harmony.io/asset-management/managing-asset-views-and-details.md): Learn how to navigate asset views, filter and search assets, view asset details, manage purchase information, record retirement, and track asset activity.
+- [Managing Asset Organization and Importing](https://docs.harmony.io/asset-management/managing-asset-organization-and-importing.md): Learn how to update asset location, ownership, and assignment; use bulk actions; import assets from CSV; and export asset data.
+- [Managing Software Applications](https://docs.harmony.io/software-management/managing-software-applications.md): Learn how to navigate the software list, view application details, manage licenses, assign and revoke user access, use bulk actions, and export software data.
+- [Building and Managing Workflows](https://docs.harmony.io/workflows-and-automation/building-and-managing-workflows.md): Learn how to build custom workflows with triggers, actions, and conditional logic; use template variables; and test and publish workflows.
+- [Data Sets](https://docs.harmony.io/data-sets/data-sets.md): Learn how to create and manage Data Sets in Harmony, structured tables used to store and reuse data across workflows, service catalog forms, and Slack integrations.
+- [Using the Harmony Portal](https://docs.harmony.io/portal-end-user-view/using-the-harmony-portal.md): Learn how to use the Harmony Portal to chat with AI agents, view and manage your tickets, and approve or deny requests.
+- [Managing Service Desks and Teams](https://docs.harmony.io/settings/managing-service-desks-and-teams.md): Learn how to create and manage service desks, add teams, configure members and roles, set working hours, and adjust desk settings.
+- [Configuring Automation and SLA](https://docs.harmony.io/settings/configuring-automation-and-sla.md): Learn how to configure desk automation (assignment, status, auto-close, surveys) and SLA policies for response and resolution targets.
+- [Managing Ticket Settings](https://docs.harmony.io/settings/managing-ticket-settings.md): Learn how to manage custom fields, tags, canned responses, and ticket configuration for your service desk.
+- [Managing User Management](https://docs.harmony.io/settings/managing-user-management.md): Learn how to manage users, groups, and roles for your organization.
+- [Managing Notification Channels](https://docs.harmony.io/settings/managing-notification-channels.md): Configure where notifications are sent (Slack, Teams, Email) for desk tickets, AI agent events, and asset alerts.
+- [Configuring Asset Management](https://docs.harmony.io/settings/configuring-asset-management.md): Learn how to configure EOL policies, low stock alerts, discovery policies, and asset notifications.
+- [Managing Knowledge Base](https://docs.harmony.io/settings/managing-knowledge-base.md): Learn how to configure the Knowledge Base (sources, articles, permissions) for AI agents and search.
+- [Understanding Integrations](https://docs.harmony.io/settings/understanding-integrations.md): Learn how Harmony integrations work, how to view and connect them, and how OAuth authentication enables secure connections to third-party systems.
+- [Connecting and Managing Integrations](https://docs.harmony.io/settings/connecting-and-managing-integrations.md): Learn how to connect, configure, and manage Harmony integrations-including multi-instance integrations and disconnecting.
+- [Configuring Integration Sync and Credentials](https://docs.harmony.io/settings/configuring-integration-sync-and-credentials.md): Learn how to configure bidirectional sync, update integration credentials, and manage credential security.
+
+## AI Agents
+
+- [Working with AI Agents](https://docs.harmony.io/ai-agents/getting-started/working-with-ai-agents.md)
+- [Configuring AI Agents](https://docs.harmony.io/ai-agents/getting-started/configuring-ai-agents.md)
+- [Application Access Request](https://docs.harmony.io/ai-agents/software-management/app-access.md): Automated application access requests with approval and provisioning.
+- [License Expiration Monitoring](https://docs.harmony.io/ai-agents/software-management/license-expiration-monitoring.md): Automated monitoring for software licenses expiring soon.
+- [Software Compliance Report](https://docs.harmony.io/ai-agents/software-management/software-compliance-report.md): Request managers to acknowledge or reject their direct reports’ application access. Creates a summary ticket with all responses on completion.
+- [Device Recovery](https://docs.harmony.io/ai-agents/access-control/device-recovery.md): Automated device recovery with identity verification and recovery key delivery.
+- [Password Reset Request](https://docs.harmony.io/ai-agents/access-control/password-reset-request.md): Automated password reset request with identity verification and temporary password delivery.
+- [IdP MFA Reset](https://docs.harmony.io/ai-agents/access-control/idp-mfa-reset.md): Automated MFA device reset with identity verification and re-enrollment instructions.
+- [IdP Group Management](https://docs.harmony.io/ai-agents/access-control/idp-group-management.md): Manage group membership with approval - add or remove users from groups.
+- [Device Uptime Monitoring](https://docs.harmony.io/ai-agents/hardware-management/device-uptime-monitoring.md): Automated monitoring for devices with high uptime (haven't restarted).
+- [Low Storage Monitoring](https://docs.harmony.io/ai-agents/hardware-management/low-storage-monitoring.md): Automated monitoring for devices with critically low storage capacity.
+- [Employee Onboarding](https://docs.harmony.io/ai-agents/employee-lifecycle/employee-onboarding.md): Automated employee onboarding - creates a parent ticket and configurable linked child tickets for new hire preparation.
+- [Employee Account Termination](https://docs.harmony.io/ai-agents/employee-lifecycle/employee-account-termination.md): Automated employee account termination with approval, identity provider deactivation, and session termination.
+
+## API References
+
+- [Introduction](https://docs.harmony.io/api-references/api-documentation/introduction.md): Your guide to building with Harmony autonomous IT platform
+- [List tickets](https://docs.harmony.io/api-references/tickets/list-tickets.md): Lists tickets with optional filtering and pagination
+- [Create a new ticket](https://docs.harmony.io/api-references/tickets/create-ticket.md): Creates a new support ticket in the system
+- [Get a ticket by ID](https://docs.harmony.io/api-references/tickets/get-ticket.md): Retrieve details of a specific ticket
+- [Update a ticket](https://docs.harmony.io/api-references/tickets/update-ticket.md): Update an existing ticket
+- [Query tickets with filters](https://docs.harmony.io/api-references/tickets/query-tickets.md): Query tickets with complex filtering including metadata filters
+- [Bulk update tickets](https://docs.harmony.io/api-references/tickets/bulk-update.md): Update multiple tickets with the same values in a single atomic transaction
+- [Get ticket activity](https://docs.harmony.io/api-references/tickets/get-activity.md): Get activity log events for a specific ticket
+- [Get ticket custom fields](https://docs.harmony.io/api-references/tickets/get-custom-fields.md): Get custom field values for a specific ticket
+- [Set ticket custom fields](https://docs.harmony.io/api-references/tickets/set-custom-fields.md): Set custom field values for a specific ticket
+
+## Integrations
+
+- [Overview](https://docs.harmony.io/integrations/readme.md): Connect Harmony with your existing tools and workflows
+- [Slack](https://docs.harmony.io/integrations/collaboration/slack.md): Transform your IT operations with Harmony intelligent Slack integration. Get real-time alerts, execute commands, and collaborate seamlessly
+- [Microsoft Teams](https://docs.harmony.io/integrations/collaboration/teams.md): Transform your IT operations with Harmony intelligent Microsoft Teams integration. Get real-time alerts, execute commands, and collaborate seamlessly
+- [Active Directory](https://docs.harmony.io/integrations/identity-provider/active-directory.md): Connect Harmony with your on-premises Active Directory to manage group membership and automate user lifecycle workflows
+- [Okta](https://docs.harmony.io/integrations/identity-provider/okta.md): Connect Harmony with Okta to automatically discover applications, track license usage, and centralize user management
+- [Microsoft Entra](https://docs.harmony.io/integrations/identity-provider/microsoft-entra.md): Sync Azure AD users and automate Microsoft 365 access management across your organization
+- [Google Workspace](https://docs.harmony.io/integrations/identity-provider/google-workspace.md): Sync Google Workspace users and automate access management across your organization
+- [JumpCloud IDP](https://docs.harmony.io/integrations/identity-provider/jumpcloud-idp.md): Centralize identity management and automate cross-platform user lifecycle workflows
+- [Jira](https://docs.harmony.io/integrations/it-service-management/atlassian.md): Integrate Jira issues and Confluence knowledge with autonomous resolution workflows
+- [Jira Service Management](https://docs.harmony.io/integrations/it-service-management/jira-service-management.md): Bi-directionally sync service desk tickets between Jira Service Management and Harmony
+- [Jira Software](https://docs.harmony.io/integrations/it-service-management/jira-software.md): Export Harmony tickets to Jira Software issues for engineering and dev team handoffs
+- [ManageEngine ServiceDesk](https://docs.harmony.io/integrations/it-service-management/manage-engine-servicedesk.md): Sync tickets bidirectionally and enhance ServiceDesk Plus with AI-powered automation
+- [SolarWinds](https://docs.harmony.io/integrations/it-service-management/solarwinds.md): Augment SolarWinds Service Desk with Harmony cognitive automation for faster resolution
+- [Zendesk](https://docs.harmony.io/integrations/it-service-management/zendesk.md): Bridge Zendesk with Harmony AI for intelligent ticket routing and automated resolution
+- [BambooHR](https://docs.harmony.io/integrations/hris/bamboohr.md): Automate employee onboarding and offboarding with BambooHR-driven IT provisioning workflows
+- [Ceridian Dayforce](https://docs.harmony.io/integrations/hris/ceridian-dayforce.md): Sync Dayforce HCM data to automate employee lifecycle and payroll-driven IT workflows
+- [Greenhouse Onboarding](https://docs.harmony.io/integrations/hris/greenhouse-onboarding.md): Trigger automated IT provisioning in Harmony from Greenhouse Onboarding new hire events
+- [HiBob](https://docs.harmony.io/integrations/hris/hibob.md): Connect Bob for modern HR management with automated IT provisioning and org chart syncing
+- [SAP SuccessFactors](https://docs.harmony.io/integrations/hris/sap-successfactors.md): Sync employee data and org structure from SAP SuccessFactors to keep the Harmony directory up to date automatically
+- [Sage HR](https://docs.harmony.io/integrations/hris/sage-hr.md): Automate SMB HR workflows with Sage HR-powered employee data and time tracking integration
+- [Shapes](https://docs.harmony.io/integrations/hris/shapes.md): Sync Shapes people data and time off to automate HR-driven IT provisioning and lifecycle workflows
+- [UKG Pro](https://docs.harmony.io/integrations/hris/ukg-pro.md): Streamline enterprise HR and payroll with UKG Pro-driven IT provisioning and access workflows
+- [Workday](https://docs.harmony.io/integrations/hris/workday.md): Sync Workday HR events to trigger intelligent IT provisioning and access management
+- [Apple Business Manager](https://docs.harmony.io/integrations/mdm/apple-business-manager.md): Streamline Apple device enrollment and automate zero-touch deployment workflows
+- [Microsoft Intune](https://docs.harmony.io/integrations/mdm/microsoft-intune.md): Unified endpoint management with automated compliance and cross-platform device control
+- [Jamf](https://docs.harmony.io/integrations/mdm/jamf.md): Automate Apple device deployment and manage macOS, iOS, and iPadOS fleets intelligently
+- [JumpCloud MDM](https://docs.harmony.io/integrations/mdm/jumpcloud-mdm.md): Automate cross-platform device management with JumpCloud unified MDM solution
+- [Iru (Kandji)](https://docs.harmony.io/integrations/mdm/kandji.md): Zero-touch Apple deployment with automated compliance checks and security enforcement
+- [ManageEngine MDM](https://docs.harmony.io/integrations/mdm/manage-engine-mdm.md): Centralize mobile device management with automated policy enforcement and security controls
+- [Confluence](https://docs.harmony.io/integrations/knowledge-base/confluence.md): Power Harmony AI with Confluence knowledge to deliver intelligent, context-aware support responses
+- [Freshservice](https://docs.harmony.io/integrations/knowledge-base/freshservice.md): Enhance Freshservice knowledge base with AI-powered search and automated content retrieval
+- [Notion](https://docs.harmony.io/integrations/knowledge-base/notion.md): Connect Notion workspaces to enable AI-powered documentation search and automated updates
+- [SharePoint](https://docs.harmony.io/integrations/knowledge-base/sharepoint.md): Leverage SharePoint content to train Harmony AI and automate document-based workflows
+- [Simpplr](https://docs.harmony.io/integrations/knowledge-base/simpplr.md): Integrate Simpplr intranet to power AI responses with employee experience insights
+- [CrowdStrike](https://docs.harmony.io/integrations/edr/crowdstrike.md): Automate threat response and endpoint security management with CrowdStrike Falcon integration
+- [Microsoft Defender for Endpoint](https://docs.harmony.io/integrations/edr/microsoft-defender.md): Enrich Harmony asset records with endpoint security posture, vulnerability findings, and threat alerts from Microsoft Defender
+- [SentinelOne](https://docs.harmony.io/integrations/edr/sentinelone.md): Integrate SentinelOne for autonomous endpoint protection and AI-driven threat detection
+- [Adobe](https://docs.harmony.io/integrations/saas-applications/adobe.md): Discover users and track Adobe license assignments across your organization via the Adobe User Management API
+- [Figma](https://docs.harmony.io/integrations/saas-applications/figma.md): Track Figma sign-in activity and user license types across your organization via the Activity Logs and SCIM APIs
+- [GitHub](https://docs.harmony.io/integrations/saas-applications/github.md): Automate repository access management and developer onboarding with GitHub integration
+- [Intercom](https://docs.harmony.io/integrations/saas-applications/intercom.md): Track admin login activity and seat utilization across your Intercom workspace
+- [JetBrains](https://docs.harmony.io/integrations/saas-applications/jetbrains.md): Discover users and track JetBrains license assignments across your organization
+- [Jenkins](https://docs.harmony.io/integrations/saas-applications/jenkins.md): Trigger Jenkins CI/CD pipelines and automation jobs directly from Harmony workflows
+- [Microsoft 365](https://docs.harmony.io/integrations/saas-applications/microsoft-365.md): Discover users, track license assignments, and monitor sign-in activity across your Microsoft 365 tenant
+- [Mesh Payments](https://docs.harmony.io/integrations/saas-applications/mesh-payments.md): Connect Mesh Payments to sync employee corporate card data and expense information into Harmony
+- [Monday.com](https://docs.harmony.io/integrations/saas-applications/monday.md): Streamline project workflows with Monday.com integration for automated task management
+- [NetSuite](https://docs.harmony.io/integrations/saas-applications/netsuite.md): Connect NetSuite to Harmony for vendor, contract, and procurement data visibility using Token-Based Authentication
+- [Salesforce](https://docs.harmony.io/integrations/saas-applications/salesforce.md): Connect Harmony with Salesforce to inventory users, track license assignments, and monitor sign-in activity across your organization
+- [Zoom](https://docs.harmony.io/integrations/saas-applications/zoom.md): Connect Harmony with Zoom to track license usage, optimize costs, and gain visibility into meeting activity across your organization
+- [ChatGPT](https://docs.harmony.io/integrations/ai/chatgpt.md): Discover users, track token consumption, and monitor ChatGPT usage across your organization via the OpenAI Admin API
+- [Claude](https://docs.harmony.io/integrations/ai/claude.md): Discover users, track token usage, and monitor Claude and Claude Code activity across your organization via the Anthropic Admin API
+- [Cursor](https://docs.harmony.io/integrations/ai/cursor.md): Discover team members and track per-user usage across your Cursor workspace
+- [Torii](https://docs.harmony.io/integrations/software-management/torii.md): Optimize SaaS spend and automate license management with Torii intelligent platform
+- [Zylo](https://docs.harmony.io/integrations/software-management/zylo.md): Pull application and license data from Zylo to enrich Harmony software inventory with spend, usage, and renewal information
+- [Workwize](https://docs.harmony.io/integrations/it-assets-management/workwize.md): Automate device procurement and asset management workflows with Workwize integration
+
+## SSO Setup
+
+- [Okta](https://docs.harmony.io/sso-setup/sso-configuration/okta.md): Log in to Okta, go to the admin dashboard, and follow these steps:
+- [Okta](https://docs.harmony.io/sso-setup/scim-configuration/okta.md): To set up SCIM provisioning on Okta, follow these steps:
+
+## FAQ
+
+- [Overview](https://docs.harmony.io/faq/faq/overview.md): Frequently asked questions from our customers
+- [Getting Started](https://docs.harmony.io/faq/faq/getting-started.md): Common questions about setting up and getting started with Harmony
+- [AI Agent](https://docs.harmony.io/faq/faq/ai-agent.md): Common questions about Harmony's AI agent behavior, knowledge base, and responses
+- [Tickets & Service Desk](https://docs.harmony.io/faq/faq/tickets-service-desk.md): Common questions about ticket management, routing, watchers, and desk configuration
+- [Workflows & Automation](https://docs.harmony.io/faq/faq/workflows-automation.md): Common questions about workflows, automation, and agents in Harmony
+- [Integrations](https://docs.harmony.io/faq/faq/integrations.md): Common questions about connecting Harmony to Okta, Jira, Microsoft, Dayforce, and other platforms
+- [User Management & Access](https://docs.harmony.io/faq/faq/user-management.md): Common questions about user provisioning, SSO, permissions, and access control in Harmony
+- [Devices & Assets](https://docs.harmony.io/faq/faq/devices-assets.md): Common questions about device management and asset tracking in Harmony
+
+## Changelog
+
+- [Product updates](https://docs.harmony.io/changelog/readme.md): A full rundown of our latest releases, improvements and fixes in Harmony
+
+
+---
+
+# Agent Instructions
+This documentation is published with GitBook. GitBook is the documentation platform designed so that both humans and AI agents can read, navigate, and reason over technical content effectively. Learn more at gitbook.com.
+
+## Querying This Documentation
+If you need additional information, you can query the documentation dynamically by asking a question.
+Perform an HTTP GET request on a page URL with the `ask` query parameter:
+```
+GET https://docs.harmony.io/getting-started/welcome.md?ask=<question>
+```
+The question should be specific, self-contained, and written in natural language.
+The response will contain a direct answer to the question and relevant excerpts and sources from the documentation.
+Use this mechanism when the answer is not explicitly present in the current page, you need clarification or additional context, or you want to retrieve related documentation sections.

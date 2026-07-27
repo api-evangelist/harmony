@@ -1,0 +1,100 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/harmony-service-desk-openapi.json
+entities:
+- name: Ticket
+  id_field: id
+  schema: TicketResponse / TicketDetailResponse
+  fields:
+  - id
+  - title
+  - description
+  - ticket_type
+  - priority
+  - source
+  - status
+  - reporter
+  - created_by
+  - assignee
+  - desk_id
+  - subdesk_id
+  - custom_fields
+  - tags
+  - related_asset_ids
+  - thread_id
+  - created_at
+  - updated_at
+  enums:
+    status: [open, in_progress, pending, pending_reporter, pending_approval, pending_internal_team,
+      pending_third_party, resolved, closed, canceled]
+    priority: [low, medium, high, urgent]
+    ticket_type: [request, incident, question]
+    source: [slack, harmony, teams, freshservice, jsm, solarwinds, email, siit]
+- name: Desk
+  id_field: id
+  schema: DeskResponse
+- name: Subdesk
+  id_field: id
+  schema: SubdeskResponse
+- name: Thread
+  id_field: id
+  schema: ThreadResponse / ThreadDetailResponse
+- name: CustomFieldDefinition
+  id_field: id
+  schema: CustomFieldDefinitionResponse
+  enums:
+    type: [number, text, checkbox, single_select, multi_select]
+- name: Tag
+  id_field: id
+  schema: TagResponse
+- name: Watcher
+  schema: WatcherResponse
+- name: Attachment
+  id_field: id
+  schema: AttachmentResponse
+- name: Event
+  id_field: id
+  schema: EventsResponse
+  note: ticket activity-log event
+relationships:
+- from: Ticket
+  to: Desk
+  type: belongs_to
+  via: desk_id
+- from: Ticket
+  to: Subdesk
+  type: belongs_to
+  via: subdesk_id
+- from: Ticket
+  to: Thread
+  type: has_one
+  via: thread_id
+- from: Ticket
+  to: Tag
+  type: has_many
+  via: tags / tag_ids
+- from: Ticket
+  to: CustomFieldDefinition
+  type: has_many
+  via: custom_fields
+- from: Ticket
+  to: Watcher
+  type: has_many
+  via: watchers
+- from: Ticket
+  to: Attachment
+  type: has_many
+  via: attachments / attachment_ids
+- from: Ticket
+  to: Event
+  type: has_many
+  via: activity
+- from: Subdesk
+  to: Desk
+  type: belongs_to
+  via: desk_id
+notes: >-
+  Derived from OpenAPI component schemas and id-reference fields. The public API surface exposes the
+  Ticket aggregate and its related entities (desk, subdesk, thread, tags, custom fields, watchers,
+  attachments, activity events); many of these entities are managed via internal endpoints excluded
+  from the public spec.

@@ -1,0 +1,22 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.harmony.io/api-references/api-documentation/introduction
+versioning:
+  scheme: uri-path
+  current: v1
+  spec_version: '0.1.0'
+  docs: https://docs.harmony.io/api-references/api-documentation/introduction
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: No deprecation or Sunset/Deprecation (RFC 8594) policy is published.
+sla:
+  url: null
+status_page: https://status.harmony.io/
+support:
+  email: support@harmony.io
+deprecated_operations: []
+notes: >-
+  The published OpenAPI is marked as a public-endpoints-only filter of an internal "service-desk"
+  service (version 0.1.0); internal endpoints and headers are excluded. A public status page is
+  live at status.harmony.io. No versioning-policy, deprecation-policy, or SLA page was found.

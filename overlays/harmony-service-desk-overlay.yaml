@@ -1,0 +1,33 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Harmony Service Desk API
+  version: 1.0.0
+extends: openapi/harmony-service-desk-openapi.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: harmony
+    x-apievangelist-artifacts:
+      authentication: authentication/harmony-authentication.yml
+      conventions: conventions/harmony-conventions.yml
+      errors: errors/harmony-problem-types.yml
+      rate-limits: rate-limits/harmony-rate-limits.yml
+      data-model: data-model/harmony-data-model.yml
+- target: $.info
+  update:
+    x-authentication:
+      scheme: AccessKey
+      header: Authorization
+      docs: https://docs.harmony.io/api-references/api-documentation/introduction
+- target: $.info
+  update:
+    x-rate-limits:
+      per_minute: 100
+      per_hour: 1000
+      headers: [X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset]
+- target: $.servers
+  update:
+    x-base-url-template: https://<customer_subdomain>.harmony.io
+notes: >-
+  Overlay captures API Evangelist enrichment metadata. It never mutates the harvested original
+  OpenAPI; apply with an Overlay 1.0.0 processor to produce an enhanced working copy.

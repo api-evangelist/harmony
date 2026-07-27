@@ -1,0 +1,45 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/harmony-service-desk-openapi.json
+docs: https://docs.harmony.io/api-references/api-documentation/introduction
+format: detail-envelope
+envelope:
+  description: >-
+    Error responses return a JSON object. Simple errors use a single `detail` string
+    (e.g. {"detail": "Ticket not found"}). Validation errors (HTTP 422) return `detail` as an
+    array of ValidationError objects with `loc` (location path), `msg` (message), and `type`
+    (error type). This is FastAPI-style and is NOT RFC 9457 application/problem+json.
+  fields:
+  - detail
+problems:
+- status: 422
+  title: Validation error
+  media_type: application/json
+  schema: HTTPValidationError
+  description: >-
+    Request failed schema validation. `detail` is an array of {loc, msg, type} entries pinpointing
+    each invalid field. Returned by every documented operation.
+  remediation: Correct the flagged request fields and resubmit.
+  source_operations:
+  - openapi/harmony-service-desk-openapi.json#createTicket
+  - openapi/harmony-service-desk-openapi.json#listTickets
+  - openapi/harmony-service-desk-openapi.json#getTicketByID
+  - openapi/harmony-service-desk-openapi.json#updateTicket
+  - openapi/harmony-service-desk-openapi.json#queryTickets
+  - openapi/harmony-service-desk-openapi.json#bulkUpdateTickets
+  - openapi/harmony-service-desk-openapi.json#getTicketCustomFields
+  - openapi/harmony-service-desk-openapi.json#setTicketCustomFields
+  - openapi/harmony-service-desk-openapi.json#getTicketActivity
+- status: 404
+  title: Resource not found
+  media_type: application/json
+  description: >-
+    Documented example error ({"detail": "Ticket not found"}). Returned when a referenced ticket id
+    does not exist. Not enumerated per-operation in the published OpenAPI.
+  remediation: Verify the ticket_id and the authenticating tenant subdomain.
+  source: https://docs.harmony.io/api-references/api-documentation/introduction
+notes: >-
+  The published OpenAPI enumerates only 200/201 success and 422 validation responses. The docs
+  additionally describe a generic {"detail": ...} error envelope for the 400-599 range; 401/403
+  (auth), 404 (not found), and 429 (rate limit) are implied by the auth and rate-limit sections but
+  not itemised in the spec.

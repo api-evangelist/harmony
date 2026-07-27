@@ -1,0 +1,70 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.harmony.io/api-references/api-documentation/introduction
+derived_from: openapi/harmony-service-desk-openapi.json
+api: openapi/harmony-service-desk-openapi.json
+conventions:
+  base_url:
+    style: per-tenant-subdomain
+    template: https://<customer_subdomain>.harmony.io
+    api_prefix: /api/v1
+  authentication:
+    style: AccessKey token in Authorization header
+    header: 'Authorization: AccessKey <token>'
+    see: authentication/harmony-authentication.yml
+  versioning:
+    style: uri-path
+    current: v1
+    prefix: /api/v1
+  pagination:
+    style: page-number
+    request_params:
+    - page
+    - page_size
+    response_fields:
+    - items
+    - total_count
+    notes: >-
+      The query endpoint (POST /api/v1/tickets/query) accepts `page` and `page_size` in the request
+      body along with `sort_by` and `sort_direction`; list responses carry `items` and `total_count`.
+  sorting:
+    request_params:
+    - sort_by
+    - sort_direction
+  filtering:
+    endpoint: POST /api/v1/tickets/query
+    fields:
+    - title
+    - description
+    - ticket_type
+    - priority
+    - status
+    - reporter
+    - assignee
+    - desk_id
+    - subdesk_id
+    - tag_ids
+    - tag_names
+    - source
+    - vip_reporter
+    - location_reporter
+    - metadata_filters
+  bulk_operations:
+    endpoint: POST /api/v1/tickets/bulk-update
+    semantics: single atomic transaction across multiple ticket ids
+  rate_limiting:
+    signalled_via:
+    - X-RateLimit-Limit
+    - X-RateLimit-Remaining
+    - X-RateLimit-Reset
+    see: rate-limits/harmony-rate-limits.yml
+  error_envelope:
+    shape: '{"detail": <string | ValidationError[]>}'
+    format: detail-envelope (FastAPI-style, not RFC 9457)
+    see: errors/harmony-problem-types.yml
+  idempotency:
+    supported: false
+    notes: No idempotency-key header or parameter is documented or present in the OpenAPI.
+  request_tracing:
+    supported: unknown
+    notes: No request-id/correlation header is documented in the public API reference.

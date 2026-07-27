@@ -1,0 +1,40 @@
+generated: '2026-07-19'
+method: derived
+status: candidate
+source: openapi/harmony-service-desk-openapi.json
+server:
+  name: harmony-service-desk
+  transport: http
+  url: null
+notes: >-
+  No official hosted/remote Harmony MCP server was found (docs, npm @modelcontextprotocol, MCP
+  registries). This is a candidate tool list derived one-to-one from the public Service Desk
+  OpenAPI operations.
+tools:
+- name: list_tickets
+  description: List tickets with optional filtering and pagination.
+  source_operation: openapi/harmony-service-desk-openapi.json#listTickets
+- name: create_ticket
+  description: Create a new support ticket.
+  source_operation: openapi/harmony-service-desk-openapi.json#createTicket
+- name: get_ticket
+  description: Get a ticket by ID.
+  source_operation: openapi/harmony-service-desk-openapi.json#getTicketByID
+- name: update_ticket
+  description: Update an existing ticket.
+  source_operation: openapi/harmony-service-desk-openapi.json#updateTicket
+- name: query_tickets
+  description: Query tickets with complex filters including metadata filters.
+  source_operation: openapi/harmony-service-desk-openapi.json#queryTickets
+- name: bulk_update_tickets
+  description: Update multiple tickets atomically in one call.
+  source_operation: openapi/harmony-service-desk-openapi.json#bulkUpdateTickets
+- name: get_ticket_activity
+  description: Get the activity-log events for a ticket.
+  source_operation: openapi/harmony-service-desk-openapi.json#getTicketActivity
+- name: get_ticket_custom_fields
+  description: Get custom field values for a ticket.
+  source_operation: openapi/harmony-service-desk-openapi.json#getTicketCustomFields
+- name: set_ticket_custom_fields
+  description: Set custom field values for a ticket.
+  source_operation: openapi/harmony-service-desk-openapi.json#setTicketCustomFields

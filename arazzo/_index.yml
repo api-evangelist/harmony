@@ -1,0 +1,8 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/harmony-service-desk-openapi.json
+workflows:
+- file: harmony-create-and-triage-ticket.yml
+  workflowId: createAndTriageTicket
+  title: Harmony — create and triage an IT ticket
+  summary: Create a service-desk ticket, read it back, triage it, and audit the change.

@@ -1,0 +1,78 @@
+arazzo: 1.0.1
+info:
+  title: Harmony — create and triage an IT ticket
+  version: 1.0.0
+  summary: Create a service-desk ticket, read it back, triage it, and audit the change.
+sourceDescriptions:
+- name: serviceDesk
+  url: ../openapi/harmony-service-desk-openapi.json
+  type: openapi
+workflows:
+- workflowId: createAndTriageTicket
+  summary: Create a ticket then set its assignee, priority, and status.
+  description: >-
+    Opens a new IT ticket, confirms it via get-by-id, applies a triage update, and reads the
+    activity log. Uses the public Harmony Service Desk operations.
+  inputs:
+    type: object
+    properties:
+      title:
+        type: string
+      description:
+        type: string
+      ticket_type:
+        type: string
+        enum: [request, incident, question]
+      priority:
+        type: string
+        enum: [low, medium, high, urgent]
+      reporter:
+        type: string
+      assignee:
+        type: string
+  steps:
+  - stepId: createTicket
+    operationId: createTicket
+    requestBody:
+      contentType: application/json
+      payload:
+        title: $inputs.title
+        description: $inputs.description
+        ticket_type: $inputs.ticket_type
+        priority: $inputs.priority
+        reporter: $inputs.reporter
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      ticket_id: $response.body#/id
+  - stepId: getTicket
+    operationId: getTicketByID
+    parameters:
+    - name: ticket_id
+      in: path
+      value: $steps.createTicket.outputs.ticket_id
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: triageTicket
+    operationId: updateTicket
+    parameters:
+    - name: ticket_id
+      in: path
+      value: $steps.createTicket.outputs.ticket_id
+    requestBody:
+      contentType: application/json
+      payload:
+        assignee: $inputs.assignee
+        status: in_progress
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: readActivity
+    operationId: getTicketActivity
+    parameters:
+    - name: ticket_id
+      in: path
+      value: $steps.createTicket.outputs.ticket_id
+    successCriteria:
+    - condition: $statusCode == 200
+  outputs:
+    ticket_id: $steps.createTicket.outputs.ticket_id

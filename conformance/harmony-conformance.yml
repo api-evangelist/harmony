@@ -1,0 +1,34 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/harmony-service-desk-openapi.json
+standards:
+- id: openapi-3.1
+  conforms: true
+  evidence: openapi field is 3.1.0
+- id: oauth2
+  conforms: false
+  evidence: no oauth2 securityScheme; auth is AccessKey/bearer token
+- id: oidc
+  conforms: false
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: errors use a FastAPI {detail} envelope, not application/problem+json
+- id: rfc8594-sunset-header
+  conforms: false
+  evidence: no deprecation/Sunset policy published
+- id: pagination
+  conforms: true
+  evidence: page/page_size request params with items/total_count response envelope
+- id: idempotency
+  conforms: false
+  evidence: no Idempotency-Key header or parameter documented
+- id: json-api
+  conforms: false
+- id: scim
+  conforms: false
+- id: fhir
+  conforms: false
+notes: >-
+  Conformance is derived from the published OpenAPI structure only. No published compliance
+  certifications (SOC 2, ISO 27001, PCI DSS, HIPAA, FedRAMP) were found on the trust center at the
+  time of enrichment, so no Compliance pointer is emitted.

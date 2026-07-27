@@ -1,0 +1,14 @@
+{
+  "provider": "harmony",
+  "sources": [
+    "harmony-tickets-api-openapi.yml"
+  ],
+  "outputs": [
+    "harmony-tickets-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
