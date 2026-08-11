@@ -71,6 +71,10 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: MCPServer
+  url: mcp/harmony-mcp.yml
+- type: Overlay
+  url: overlays/harmony-service-desk-overlay.yaml
 - type: DomainSecurity
   url: security/harmony-domain-security.yml
 - type: DeveloperPortal
