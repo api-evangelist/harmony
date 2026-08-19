@@ -1,0 +1,1750 @@
+{
+  "item": [
+    {
+      "id": "f8fd2a01-87ad-42ec-bbd8-8e8f426111ce",
+      "name": "tickets",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d7248cf6-a9e8-4b6e-a100-bfb6f3d26a6e",
+          "name": "Create a new ticket",
+          "request": {
+            "name": "Create a new ticket",
+            "description": {
+              "content": "Creates a new support ticket in the system",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "tickets",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"ticket_type\": \"<string>\",\n  \"priority\": \"<string>\",\n  \"reporter\": \"<string>\",\n  \"desk_id\": \"<string>\",\n  \"description\": \"<string>\",\n  \"source\": \"harmony\",\n  \"assignee\": \"<string>\",\n  \"attachment_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"custom_fields\": {\n    \"key_0\": 7998\n  },\n  \"ticket_metadata\": {\n    \"key_0\": \"string\",\n    \"key_1\": false\n  },\n  \"created_at\": \"<dateTime>\",\n  \"related_asset_ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"publish_events\": true,\n  \"thread_id\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1d2547d6-07ed-47a4-b883-8a11ea2a1a25",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tickets",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"ticket_type\": \"request\",\n  \"priority\": \"low\",\n  \"reporter\": \"<string>\",\n  \"desk_id\": \"<string>\",\n  \"description\": \"<string>\",\n  \"source\": \"harmony\",\n  \"assignee\": \"<string>\",\n  \"attachment_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"custom_fields\": {\n    \"key_0\": true,\n    \"key_1\": false\n  },\n  \"ticket_metadata\": {\n    \"key_0\": 1158.9294130175997,\n    \"key_1\": true,\n    \"key_2\": 2582,\n    \"key_3\": 7743.426216608998\n  },\n  \"created_at\": \"<dateTime>\",\n  \"related_asset_ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"publish_events\": true,\n  \"thread_id\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"title\": \"string\",\n  \"ticket_type\": \"question\",\n  \"priority\": \"urgent\",\n  \"source\": \"harmony\",\n  \"status\": \"resolved\",\n  \"reporter\": \"string\",\n  \"created_by\": \"string\",\n  \"desk_id\": \"string\",\n  \"subdesk_id\": \"string\",\n  \"created_at\": \"1997-04-14T07:55:02.904Z\",\n  \"updated_at\": \"1963-07-07T06:11:09.386Z\",\n  \"custom_fields\": {\n    \"key_0\": \"string\"\n  },\n  \"description\": \"string\",\n  \"assignee\": \"string\",\n  \"ticket_metadata\": {\n    \"key_0\": 1521.784477573489\n  },\n  \"kb_resolution\": {\n    \"answer_summary\": \"string\",\n    \"chunks_count\": 3654,\n    \"queried_at\": \"1968-09-24T02:46:12.928Z\",\n    \"sources\": [\n      {\n        \"url\": \"string\",\n        \"title\": \"string\"\n      },\n      {\n        \"url\": \"string\",\n        \"title\": \"string\"\n      }\n    ],\n    \"confidence\": 0.5148926007152165\n  },\n  \"workflows\": [\n    {\n      \"workflow_id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"workflow_target\": \"string\"\n    },\n    {\n      \"workflow_id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"workflow_target\": \"string\"\n    }\n  ],\n  \"tags\": [\n    {\n      \"id\": 5876,\n      \"desk_id\": \"string\",\n      \"name\": \"string\",\n      \"created_at\": \"2008-04-10T14:49:18.759Z\",\n      \"updated_at\": \"1984-09-21T01:49:24.710Z\",\n      \"color\": \"string\",\n      \"description\": \"string\",\n      \"system_tag\": false\n    },\n    {\n      \"id\": 9148,\n      \"desk_id\": \"string\",\n      \"name\": \"string\",\n      \"created_at\": \"2021-10-15T23:33:57.865Z\",\n      \"updated_at\": \"2019-08-14T16:19:05.344Z\",\n      \"color\": \"string\",\n      \"description\": \"string\",\n      \"system_tag\": true\n    }\n  ],\n  \"related_asset_ids\": [\n    \"32de3eaf-6a81-8b40-5580-82acbd98558b\",\n    \"a32c020c-dd63-0d23-a5a6-0bde7fc05dce\"\n  ],\n  \"thread_id\": \"d65a4d53-02f7-0249-a09d-c78145a6fb99\",\n  \"response_sla_deadline\": \"1997-08-05T18:14:37.582Z\",\n  \"response_sla_completed_at\": \"1971-12-20T13:36:09.931Z\",\n  \"resolution_sla_deadline\": \"2020-10-24T04:00:20.614Z\",\n  \"resolution_sla_completed_at\": \"1994-08-23T19:41:38.893Z\",\n  \"watchers\": [\n    {\n      \"id\": 1012,\n      \"watcher_id\": \"string\",\n      \"notification_reply_id\": \"20a34b6b-6d1c-a83c-ef3e-518b08c808e7\",\n      \"created_at\": \"1983-09-18T01:45:12.117Z\",\n      \"updated_at\": \"1992-03-18T08:09:30.293Z\"\n    },\n    {\n      \"id\": 1400,\n      \"watcher_id\": \"string\",\n      \"notification_reply_id\": \"ba5941f5-8263-b32d-d9ad-a72767f07ea0\",\n      \"created_at\": \"2005-06-29T07:42:02.902Z\",\n      \"updated_at\": \"1970-02-27T04:03:46.921Z\"\n    }\n  ],\n  \"attachments\": [\n    {\n      \"id\": \"string\",\n      \"filename\": \"string\",\n      \"content_type\": \"string\",\n      \"file_size\": 2447,\n      \"upload_status\": \"uploaded\",\n      \"created_at\": \"2000-07-29T05:08:55.794Z\",\n      \"updated_at\": \"1966-10-24T21:42:15.051Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"filename\": \"string\",\n      \"content_type\": \"string\",\n      \"file_size\": 4240,\n      \"upload_status\": \"failed\",\n      \"created_at\": \"2008-07-23T18:01:03.759Z\",\n      \"updated_at\": \"2013-07-02T10:19:31.567Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6554a865-d27d-4317-84bf-d828fac52c00",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tickets",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"ticket_type\": \"request\",\n  \"priority\": \"low\",\n  \"reporter\": \"<string>\",\n  \"desk_id\": \"<string>\",\n  \"description\": \"<string>\",\n  \"source\": \"harmony\",\n  \"assignee\": \"<string>\",\n  \"attachment_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"custom_fields\": {\n    \"key_0\": true,\n    \"key_1\": false\n  },\n  \"ticket_metadata\": {\n    \"key_0\": 1158.9294130175997,\n    \"key_1\": true,\n    \"key_2\": 2582,\n    \"key_3\": 7743.426216608998\n  },\n  \"created_at\": \"<dateTime>\",\n  \"related_asset_ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"publish_events\": true,\n  \"thread_id\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c2a34f58-8f4f-4f26-8606-5c3431c666e3",
+          "name": "List tickets",
+          "request": {
+            "name": "List tickets",
+            "description": {
+              "content": "Lists tickets with optional filtering and pagination",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "tickets",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "25"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_by",
+                  "value": "created_at"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_direction",
+                  "value": "desc"
+                },
+                {
+                  "disabled": false,
+                  "key": "title",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ticket_type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ticket_type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "priority",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "priority",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "reporter",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "reporter",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "assignee",
+                  "value": "<string>",
+                  "description": "Use '_UNASSIGN_' for unassigned"
+                },
+                {
+                  "disabled": false,
+                  "key": "assignee",
+                  "value": "<string>",
+                  "description": "Use '_UNASSIGN_' for unassigned"
+                },
+                {
+                  "disabled": false,
+                  "key": "desk_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "desk_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "subdesk_id",
+                  "value": "<string>",
+                  "description": "Filter by subdesk (team) IDs"
+                },
+                {
+                  "disabled": false,
+                  "key": "subdesk_id",
+                  "value": "<string>",
+                  "description": "Filter by subdesk (team) IDs"
+                },
+                {
+                  "disabled": false,
+                  "key": "tag_ids",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "tag_ids",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "tag_names",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "tag_names",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "source",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "source",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "vip_reporter",
+                  "value": "<boolean>",
+                  "description": "Filter tickets by VIP status of the reporter employee"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_reporter",
+                  "value": "<string>",
+                  "description": "Filter tickets by location of the reporter employee"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_reporter",
+                  "value": "<string>",
+                  "description": "Filter tickets by location of the reporter employee"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1baab51a-c0b7-4dfd-9dc8-1fc730a96d68",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tickets",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "25"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "created_at"
+                    },
+                    {
+                      "key": "sort_direction",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ticket_type",
+                      "value": "request"
+                    },
+                    {
+                      "key": "ticket_type",
+                      "value": "incident"
+                    },
+                    {
+                      "key": "priority",
+                      "value": "high"
+                    },
+                    {
+                      "key": "priority",
+                      "value": "urgent"
+                    },
+                    {
+                      "key": "status",
+                      "value": "pending_internal_team"
+                    },
+                    {
+                      "key": "status",
+                      "value": "pending_approval"
+                    },
+                    {
+                      "key": "reporter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reporter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assignee",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assignee",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "desk_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "desk_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "subdesk_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "subdesk_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tag_ids",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "tag_ids",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "tag_names",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tag_names",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "source",
+                      "value": "freshservice"
+                    },
+                    {
+                      "key": "source",
+                      "value": "teams"
+                    },
+                    {
+                      "key": "vip_reporter",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "location_reporter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_reporter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"ticket_type\": \"incident\",\n      \"priority\": \"low\",\n      \"source\": \"slack\",\n      \"status\": \"in_progress\",\n      \"reporter\": \"string\",\n      \"created_by\": \"string\",\n      \"desk_id\": \"string\",\n      \"subdesk_id\": \"string\",\n      \"created_at\": \"1953-06-10T17:01:24.557Z\",\n      \"updated_at\": \"1960-08-10T00:58:53.514Z\",\n      \"custom_fields\": {\n        \"key_0\": true,\n        \"key_1\": \"string\"\n      },\n      \"description\": \"string\",\n      \"assignee\": \"string\",\n      \"ticket_metadata\": {\n        \"key_0\": \"string\",\n        \"key_1\": 9318.189485336805\n      },\n      \"kb_resolution\": {\n        \"answer_summary\": \"string\",\n        \"chunks_count\": 7196,\n        \"queried_at\": \"1953-03-17T15:52:10.347Z\",\n        \"sources\": [\n          {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"title\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"title\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"confidence\": 0.26219873301790686\n      },\n      \"workflows\": [\n        {\n          \"workflow_id\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"workflow_target\": \"string\"\n        },\n        {\n          \"workflow_id\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"workflow_target\": \"string\"\n        }\n      ],\n      \"tags\": [\n        {\n          \"id\": 4581,\n          \"desk_id\": \"string\",\n          \"name\": \"string\",\n          \"created_at\": \"2000-01-17T07:59:51.825Z\",\n          \"updated_at\": \"2026-03-09T23:21:40.389Z\",\n          \"color\": \"string\",\n          \"description\": \"string\",\n          \"system_tag\": false\n        },\n        {\n          \"id\": 678,\n          \"desk_id\": \"string\",\n          \"name\": \"string\",\n          \"created_at\": \"2015-03-23T07:25:59.152Z\",\n          \"updated_at\": \"2020-08-12T10:12:03.778Z\",\n          \"color\": \"string\",\n          \"description\": \"string\",\n          \"system_tag\": true\n        }\n      ],\n      \"related_asset_ids\": [\n        \"db4ebc98-64f0-258c-e4f0-9bc37b28a262\",\n        \"185eec04-6e04-6666-3323-b058e7b7c081\"\n      ],\n      \"thread_id\": \"590b6132-758a-f8ba-ba7b-53d90a9fab12\",\n      \"response_sla_deadline\": \"1999-07-23T02:47:29.413Z\",\n      \"response_sla_completed_at\": \"1985-02-12T11:38:01.003Z\",\n      \"resolution_sla_deadline\": \"2002-01-11T06:47:59.967Z\",\n      \"resolution_sla_completed_at\": \"1955-08-08T23:25:56.064Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"ticket_type\": \"incident\",\n      \"priority\": \"medium\",\n      \"source\": \"teams\",\n      \"status\": \"closed\",\n      \"reporter\": \"string\",\n      \"created_by\": \"string\",\n      \"desk_id\": \"string\",\n      \"subdesk_id\": \"string\",\n      \"created_at\": \"1959-04-02T15:55:32.270Z\",\n      \"updated_at\": \"2006-01-10T00:13:48.136Z\",\n      \"custom_fields\": {\n        \"key_0\": false\n      },\n      \"description\": \"string\",\n      \"assignee\": \"string\",\n      \"ticket_metadata\": {\n        \"key_0\": 9528.355841071536,\n        \"key_1\": false,\n        \"key_2\": 2955.230869413604,\n        \"key_3\": false\n      },\n      \"kb_resolution\": {\n        \"answer_summary\": \"string\",\n        \"chunks_count\": 9876,\n        \"queried_at\": \"1965-02-19T04:44:18.823Z\",\n        \"sources\": [\n          {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"title\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"title\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"confidence\": 0.18890666394395894\n      },\n      \"workflows\": [\n        {\n          \"workflow_id\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"workflow_target\": \"string\"\n        },\n        {\n          \"workflow_id\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"workflow_target\": \"string\"\n        }\n      ],\n      \"tags\": [\n        {\n          \"id\": 3320,\n          \"desk_id\": \"string\",\n          \"name\": \"string\",\n          \"created_at\": \"2010-05-04T00:07:23.818Z\",\n          \"updated_at\": \"1947-06-17T07:04:25.810Z\",\n          \"color\": \"string\",\n          \"description\": \"string\",\n          \"system_tag\": false\n        },\n        {\n          \"id\": 6746,\n          \"desk_id\": \"string\",\n          \"name\": \"string\",\n          \"created_at\": \"1959-10-29T07:13:57.144Z\",\n          \"updated_at\": \"1959-04-17T15:56:54.652Z\",\n          \"color\": \"string\",\n          \"description\": \"string\",\n          \"system_tag\": true\n        }\n      ],\n      \"related_asset_ids\": [\n        \"b5ca8ffa-677a-5ee0-1c73-c5d1da5ed3e9\",\n        \"fa6a2c51-ee1d-266c-38fa-2dd7b8a1f482\"\n      ],\n      \"thread_id\": \"99b5bb5f-9c3a-ab2d-633d-605ba559bb61\",\n      \"response_sla_deadline\": \"1982-06-05T02:36:51.771Z\",\n      \"response_sla_completed_at\": \"1949-06-17T17:13:45.579Z\",\n      \"resolution_sla_deadline\": \"2006-11-18T10:45:13.578Z\",\n      \"resolution_sla_completed_at\": \"1992-08-02T11:33:43.218Z\"\n    }\n  ],\n  \"total_count\": 4128\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f179d7cf-781d-4349-841b-9fd50b8f82d6",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tickets",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "25"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "created_at"
+                    },
+                    {
+                      "key": "sort_direction",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ticket_type",
+                      "value": "request"
+                    },
+                    {
+                      "key": "ticket_type",
+                      "value": "incident"
+                    },
+                    {
+                      "key": "priority",
+                      "value": "high"
+                    },
+                    {
+                      "key": "priority",
+                      "value": "urgent"
+                    },
+                    {
+                      "key": "status",
+                      "value": "pending_internal_team"
+                    },
+                    {
+                      "key": "status",
+                      "value": "pending_approval"
+                    },
+                    {
+                      "key": "reporter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reporter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assignee",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assignee",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "desk_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "desk_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "subdesk_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "subdesk_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tag_ids",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "tag_ids",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "tag_names",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tag_names",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "source",
+                      "value": "freshservice"
+                    },
+                    {
+                      "key": "source",
+                      "value": "teams"
+                    },
+                    {
+                      "key": "vip_reporter",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "location_reporter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_reporter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "93f80466-30a0-49d8-b6c2-74bfbddf60e9",
+          "name": "Get a ticket by ID",
+          "request": {
+            "name": "Get a ticket by ID",
+            "description": {
+              "content": "Retrieves a ticket by ID with extended details including watchers",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "tickets",
+                ":ticket_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ticket_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7a6a467c-7f5c-47c6-beb4-4685139cee75",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tickets",
+                    ":ticket_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticket_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"title\": \"string\",\n  \"ticket_type\": \"question\",\n  \"priority\": \"urgent\",\n  \"source\": \"harmony\",\n  \"status\": \"resolved\",\n  \"reporter\": \"string\",\n  \"created_by\": \"string\",\n  \"desk_id\": \"string\",\n  \"subdesk_id\": \"string\",\n  \"created_at\": \"1997-04-14T07:55:02.904Z\",\n  \"updated_at\": \"1963-07-07T06:11:09.386Z\",\n  \"custom_fields\": {\n    \"key_0\": \"string\"\n  },\n  \"description\": \"string\",\n  \"assignee\": \"string\",\n  \"ticket_metadata\": {\n    \"key_0\": 1521.784477573489\n  },\n  \"kb_resolution\": {\n    \"answer_summary\": \"string\",\n    \"chunks_count\": 3654,\n    \"queried_at\": \"1968-09-24T02:46:12.928Z\",\n    \"sources\": [\n      {\n        \"url\": \"string\",\n        \"title\": \"string\"\n      },\n      {\n        \"url\": \"string\",\n        \"title\": \"string\"\n      }\n    ],\n    \"confidence\": 0.5148926007152165\n  },\n  \"workflows\": [\n    {\n      \"workflow_id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"workflow_target\": \"string\"\n    },\n    {\n      \"workflow_id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"workflow_target\": \"string\"\n    }\n  ],\n  \"tags\": [\n    {\n      \"id\": 5876,\n      \"desk_id\": \"string\",\n      \"name\": \"string\",\n      \"created_at\": \"2008-04-10T14:49:18.759Z\",\n      \"updated_at\": \"1984-09-21T01:49:24.710Z\",\n      \"color\": \"string\",\n      \"description\": \"string\",\n      \"system_tag\": false\n    },\n    {\n      \"id\": 9148,\n      \"desk_id\": \"string\",\n      \"name\": \"string\",\n      \"created_at\": \"2021-10-15T23:33:57.865Z\",\n      \"updated_at\": \"2019-08-14T16:19:05.344Z\",\n      \"color\": \"string\",\n      \"description\": \"string\",\n      \"system_tag\": true\n    }\n  ],\n  \"related_asset_ids\": [\n    \"32de3eaf-6a81-8b40-5580-82acbd98558b\",\n    \"a32c020c-dd63-0d23-a5a6-0bde7fc05dce\"\n  ],\n  \"thread_id\": \"d65a4d53-02f7-0249-a09d-c78145a6fb99\",\n  \"response_sla_deadline\": \"1997-08-05T18:14:37.582Z\",\n  \"response_sla_completed_at\": \"1971-12-20T13:36:09.931Z\",\n  \"resolution_sla_deadline\": \"2020-10-24T04:00:20.614Z\",\n  \"resolution_sla_completed_at\": \"1994-08-23T19:41:38.893Z\",\n  \"watchers\": [\n    {\n      \"id\": 1012,\n      \"watcher_id\": \"string\",\n      \"notification_reply_id\": \"20a34b6b-6d1c-a83c-ef3e-518b08c808e7\",\n      \"created_at\": \"1983-09-18T01:45:12.117Z\",\n      \"updated_at\": \"1992-03-18T08:09:30.293Z\"\n    },\n    {\n      \"id\": 1400,\n      \"watcher_id\": \"string\",\n      \"notification_reply_id\": \"ba5941f5-8263-b32d-d9ad-a72767f07ea0\",\n      \"created_at\": \"2005-06-29T07:42:02.902Z\",\n      \"updated_at\": \"1970-02-27T04:03:46.921Z\"\n    }\n  ],\n  \"attachments\": [\n    {\n      \"id\": \"string\",\n      \"filename\": \"string\",\n      \"content_type\": \"string\",\n      \"file_size\": 2447,\n      \"upload_status\": \"uploaded\",\n      \"created_at\": \"2000-07-29T05:08:55.794Z\",\n      \"updated_at\": \"1966-10-24T21:42:15.051Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"filename\": \"string\",\n      \"content_type\": \"string\",\n      \"file_size\": 4240,\n      \"upload_status\": \"failed\",\n      \"created_at\": \"2008-07-23T18:01:03.759Z\",\n      \"updated_at\": \"2013-07-02T10:19:31.567Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "af6d3fc1-2416-4f25-9f7c-b08b088ed7d2",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tickets",
+                    ":ticket_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticket_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "21588cbc-d0d7-4868-a367-ac2c138181de",
+          "name": "Update a ticket",
+          "request": {
+            "name": "Update a ticket",
+            "description": {
+              "content": "Updates an existing ticket with the provided fields",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "tickets",
+                ":ticket_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ticket_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"ticket_type\": \"<string>\",\n  \"priority\": \"<string>\",\n  \"status\": \"<string>\",\n  \"assignee\": \"<string>\",\n  \"desk_id\": \"<string>\",\n  \"subdesk_id\": \"<string>\",\n  \"notification_reply_id\": \"<string>\",\n  \"custom_fields\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": true\n  },\n  \"ticket_metadata\": {\n    \"key_0\": 3319.3380689385067,\n    \"key_1\": 3096.274161160667\n  },\n  \"attachment_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"created_at\": \"<dateTime>\",\n  \"response_sla_deadline\": \"<dateTime>\",\n  \"response_sla_completed_at\": \"<dateTime>\",\n  \"resolution_sla_deadline\": \"<dateTime>\",\n  \"resolution_sla_completed_at\": \"<dateTime>\",\n  \"publish_events\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "43b711d9-e961-4d43-82e0-cc2770b29634",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tickets",
+                    ":ticket_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticket_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"ticket_type\": \"incident\",\n  \"priority\": \"urgent\",\n  \"status\": \"pending_internal_team\",\n  \"assignee\": \"<string>\",\n  \"desk_id\": \"<string>\",\n  \"subdesk_id\": \"<string>\",\n  \"notification_reply_id\": \"<string>\",\n  \"custom_fields\": {\n    \"key_0\": 7457,\n    \"key_1\": 1701.3674724009165\n  },\n  \"ticket_metadata\": {\n    \"key_0\": \"string\",\n    \"key_1\": true\n  },\n  \"attachment_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"created_at\": \"<dateTime>\",\n  \"response_sla_deadline\": \"<dateTime>\",\n  \"response_sla_completed_at\": \"<dateTime>\",\n  \"resolution_sla_deadline\": \"<dateTime>\",\n  \"resolution_sla_completed_at\": \"<dateTime>\",\n  \"publish_events\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"title\": \"string\",\n  \"ticket_type\": \"incident\",\n  \"priority\": \"low\",\n  \"source\": \"siit\",\n  \"status\": \"pending\",\n  \"reporter\": \"string\",\n  \"created_by\": \"string\",\n  \"desk_id\": \"string\",\n  \"subdesk_id\": \"string\",\n  \"created_at\": \"2011-05-30T05:33:28.437Z\",\n  \"updated_at\": \"1966-07-17T23:49:54.508Z\",\n  \"custom_fields\": {\n    \"key_0\": 233\n  },\n  \"description\": \"string\",\n  \"assignee\": \"string\",\n  \"ticket_metadata\": {\n    \"key_0\": 7832.695649040376,\n    \"key_1\": 8146\n  },\n  \"kb_resolution\": {\n    \"answer_summary\": \"string\",\n    \"chunks_count\": 5489,\n    \"queried_at\": \"1972-06-09T00:19:39.771Z\",\n    \"sources\": [\n      {\n        \"url\": \"string\",\n        \"title\": \"string\"\n      },\n      {\n        \"url\": \"string\",\n        \"title\": \"string\"\n      }\n    ],\n    \"confidence\": 0.38128963451700326\n  },\n  \"workflows\": [\n    {\n      \"workflow_id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"workflow_target\": \"string\"\n    },\n    {\n      \"workflow_id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"workflow_target\": \"string\"\n    }\n  ],\n  \"tags\": [\n    {\n      \"id\": 9355,\n      \"desk_id\": \"string\",\n      \"name\": \"string\",\n      \"created_at\": \"1998-08-27T08:03:05.309Z\",\n      \"updated_at\": \"1979-01-10T05:01:33.829Z\",\n      \"color\": \"string\",\n      \"description\": \"string\",\n      \"system_tag\": true\n    },\n    {\n      \"id\": 3220,\n      \"desk_id\": \"string\",\n      \"name\": \"string\",\n      \"created_at\": \"1988-11-05T00:07:16.834Z\",\n      \"updated_at\": \"2002-08-30T02:37:25.633Z\",\n      \"color\": \"string\",\n      \"description\": \"string\",\n      \"system_tag\": false\n    }\n  ],\n  \"related_asset_ids\": [\n    \"70b6de4d-ebbc-24c1-b2b6-f9982a23019f\",\n    \"4185e561-6e43-9b0c-7d94-d3a1ec2deea8\"\n  ],\n  \"thread_id\": \"0fecdb88-485d-a76a-76d3-1aa83a473598\",\n  \"response_sla_deadline\": \"1948-08-04T02:32:01.983Z\",\n  \"response_sla_completed_at\": \"1997-09-08T19:16:15.500Z\",\n  \"resolution_sla_deadline\": \"1973-09-20T10:17:59.714Z\",\n  \"resolution_sla_completed_at\": \"1996-03-15T10:11:09.482Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6dfb9a3b-8dcc-42dc-b72a-61991af31898",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tickets",
+                    ":ticket_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticket_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"ticket_type\": \"incident\",\n  \"priority\": \"urgent\",\n  \"status\": \"pending_internal_team\",\n  \"assignee\": \"<string>\",\n  \"desk_id\": \"<string>\",\n  \"subdesk_id\": \"<string>\",\n  \"notification_reply_id\": \"<string>\",\n  \"custom_fields\": {\n    \"key_0\": 7457,\n    \"key_1\": 1701.3674724009165\n  },\n  \"ticket_metadata\": {\n    \"key_0\": \"string\",\n    \"key_1\": true\n  },\n  \"attachment_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"created_at\": \"<dateTime>\",\n  \"response_sla_deadline\": \"<dateTime>\",\n  \"response_sla_completed_at\": \"<dateTime>\",\n  \"resolution_sla_deadline\": \"<dateTime>\",\n  \"resolution_sla_completed_at\": \"<dateTime>\",\n  \"publish_events\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5ec13d3c-235c-4e19-b823-5263e691e19b",
+          "name": "Query tickets with filters",
+          "request": {
+            "name": "Query tickets with filters",
+            "description": {
+              "content": "Query tickets with complex filtering including metadata filters",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "tickets",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"page\": 1,\n  \"page_size\": 25,\n  \"sort_by\": \"created_at\",\n  \"sort_direction\": \"desc\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"ticket_type\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"priority\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"status\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"reporter\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"assignee\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"desk_id\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"subdesk_id\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tag_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"tag_names\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"source\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"vip_reporter\": \"<boolean>\",\n  \"location_reporter\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"metadata_filters\": {\n    \"key_0\": 5957.560465349245\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f0e3a88f-6554-4a9a-ac3b-18073479e1a4",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tickets",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"page\": 1,\n  \"page_size\": 25,\n  \"sort_by\": \"created_at\",\n  \"sort_direction\": \"desc\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"ticket_type\": [\n    \"incident\",\n    \"question\"\n  ],\n  \"priority\": [\n    \"low\",\n    \"low\"\n  ],\n  \"status\": [\n    \"pending_internal_team\",\n    \"pending_reporter\"\n  ],\n  \"reporter\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"assignee\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"desk_id\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"subdesk_id\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tag_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"tag_names\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"source\": [\n    \"siit\",\n    \"email\"\n  ],\n  \"vip_reporter\": \"<boolean>\",\n  \"location_reporter\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"metadata_filters\": {\n    \"key_0\": 1754,\n    \"key_1\": 9715,\n    \"key_2\": 9851.020245176733,\n    \"key_3\": false,\n    \"key_4\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"ticket_type\": \"incident\",\n      \"priority\": \"low\",\n      \"source\": \"slack\",\n      \"status\": \"in_progress\",\n      \"reporter\": \"string\",\n      \"created_by\": \"string\",\n      \"desk_id\": \"string\",\n      \"subdesk_id\": \"string\",\n      \"created_at\": \"1953-06-10T17:01:24.557Z\",\n      \"updated_at\": \"1960-08-10T00:58:53.514Z\",\n      \"custom_fields\": {\n        \"key_0\": true,\n        \"key_1\": \"string\"\n      },\n      \"description\": \"string\",\n      \"assignee\": \"string\",\n      \"ticket_metadata\": {\n        \"key_0\": \"string\",\n        \"key_1\": 9318.189485336805\n      },\n      \"kb_resolution\": {\n        \"answer_summary\": \"string\",\n        \"chunks_count\": 7196,\n        \"queried_at\": \"1953-03-17T15:52:10.347Z\",\n        \"sources\": [\n          {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"title\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"title\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"confidence\": 0.26219873301790686\n      },\n      \"workflows\": [\n        {\n          \"workflow_id\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"workflow_target\": \"string\"\n        },\n        {\n          \"workflow_id\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"workflow_target\": \"string\"\n        }\n      ],\n      \"tags\": [\n        {\n          \"id\": 4581,\n          \"desk_id\": \"string\",\n          \"name\": \"string\",\n          \"created_at\": \"2000-01-17T07:59:51.825Z\",\n          \"updated_at\": \"2026-03-09T23:21:40.389Z\",\n          \"color\": \"string\",\n          \"description\": \"string\",\n          \"system_tag\": false\n        },\n        {\n          \"id\": 678,\n          \"desk_id\": \"string\",\n          \"name\": \"string\",\n          \"created_at\": \"2015-03-23T07:25:59.152Z\",\n          \"updated_at\": \"2020-08-12T10:12:03.778Z\",\n          \"color\": \"string\",\n          \"description\": \"string\",\n          \"system_tag\": true\n        }\n      ],\n      \"related_asset_ids\": [\n        \"db4ebc98-64f0-258c-e4f0-9bc37b28a262\",\n        \"185eec04-6e04-6666-3323-b058e7b7c081\"\n      ],\n      \"thread_id\": \"590b6132-758a-f8ba-ba7b-53d90a9fab12\",\n      \"response_sla_deadline\": \"1999-07-23T02:47:29.413Z\",\n      \"response_sla_completed_at\": \"1985-02-12T11:38:01.003Z\",\n      \"resolution_sla_deadline\": \"2002-01-11T06:47:59.967Z\",\n      \"resolution_sla_completed_at\": \"1955-08-08T23:25:56.064Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"ticket_type\": \"incident\",\n      \"priority\": \"medium\",\n      \"source\": \"teams\",\n      \"status\": \"closed\",\n      \"reporter\": \"string\",\n      \"created_by\": \"string\",\n      \"desk_id\": \"string\",\n      \"subdesk_id\": \"string\",\n      \"created_at\": \"1959-04-02T15:55:32.270Z\",\n      \"updated_at\": \"2006-01-10T00:13:48.136Z\",\n      \"custom_fields\": {\n        \"key_0\": false\n      },\n      \"description\": \"string\",\n      \"assignee\": \"string\",\n      \"ticket_metadata\": {\n        \"key_0\": 9528.355841071536,\n        \"key_1\": false,\n        \"key_2\": 2955.230869413604,\n        \"key_3\": false\n      },\n      \"kb_resolution\": {\n        \"answer_summary\": \"string\",\n        \"chunks_count\": 9876,\n        \"queried_at\": \"1965-02-19T04:44:18.823Z\",\n        \"sources\": [\n          {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"title\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"title\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"confidence\": 0.18890666394395894\n      },\n      \"workflows\": [\n        {\n          \"workflow_id\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"workflow_target\": \"string\"\n        },\n        {\n          \"workflow_id\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"workflow_target\": \"string\"\n        }\n      ],\n      \"tags\": [\n        {\n          \"id\": 3320,\n          \"desk_id\": \"string\",\n          \"name\": \"string\",\n          \"created_at\": \"2010-05-04T00:07:23.818Z\",\n          \"updated_at\": \"1947-06-17T07:04:25.810Z\",\n          \"color\": \"string\",\n          \"description\": \"string\",\n          \"system_tag\": false\n        },\n        {\n          \"id\": 6746,\n          \"desk_id\": \"string\",\n          \"name\": \"string\",\n          \"created_at\": \"1959-10-29T07:13:57.144Z\",\n          \"updated_at\": \"1959-04-17T15:56:54.652Z\",\n          \"color\": \"string\",\n          \"description\": \"string\",\n          \"system_tag\": true\n        }\n      ],\n      \"related_asset_ids\": [\n        \"b5ca8ffa-677a-5ee0-1c73-c5d1da5ed3e9\",\n        \"fa6a2c51-ee1d-266c-38fa-2dd7b8a1f482\"\n      ],\n      \"thread_id\": \"99b5bb5f-9c3a-ab2d-633d-605ba559bb61\",\n      \"response_sla_deadline\": \"1982-06-05T02:36:51.771Z\",\n      \"response_sla_completed_at\": \"1949-06-17T17:13:45.579Z\",\n      \"resolution_sla_deadline\": \"2006-11-18T10:45:13.578Z\",\n      \"resolution_sla_completed_at\": \"1992-08-02T11:33:43.218Z\"\n    }\n  ],\n  \"total_count\": 4128\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6dc164a5-06d7-4f04-b4b2-235f7ca401a2",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tickets",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"page\": 1,\n  \"page_size\": 25,\n  \"sort_by\": \"created_at\",\n  \"sort_direction\": \"desc\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"ticket_type\": [\n    \"incident\",\n    \"question\"\n  ],\n  \"priority\": [\n    \"low\",\n    \"low\"\n  ],\n  \"status\": [\n    \"pending_internal_team\",\n    \"pending_reporter\"\n  ],\n  \"reporter\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"assignee\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"desk_id\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"subdesk_id\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tag_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"tag_names\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"source\": [\n    \"siit\",\n    \"email\"\n  ],\n  \"vip_reporter\": \"<boolean>\",\n  \"location_reporter\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"metadata_filters\": {\n    \"key_0\": 1754,\n    \"key_1\": 9715,\n    \"key_2\": 9851.020245176733,\n    \"key_3\": false,\n    \"key_4\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9f816b94-679c-4d34-9307-fd9426150b56",
+          "name": "Bulk update tickets",
+          "request": {
+            "name": "Bulk update tickets",
+            "description": {
+              "content": "Update multiple tickets with the same values in a single atomic transaction",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "tickets",
+                "bulk-update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ticket_ids\": [\n    \"<string>\"\n  ],\n  \"priority\": \"<string>\",\n  \"status\": \"<string>\",\n  \"assignee\": \"<string>\",\n  \"publish_events\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "635a6829-4fa5-4921-abca-109bef9ff30b",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tickets",
+                    "bulk-update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ticket_ids\": [\n    \"<string>\"\n  ],\n  \"priority\": \"urgent\",\n  \"status\": \"closed\",\n  \"assignee\": \"<string>\",\n  \"publish_events\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"updated_count\": 1633\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8c8eb884-e178-4ccd-8f4a-f74cc434ac29",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tickets",
+                    "bulk-update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ticket_ids\": [\n    \"<string>\"\n  ],\n  \"priority\": \"urgent\",\n  \"status\": \"closed\",\n  \"assignee\": \"<string>\",\n  \"publish_events\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bd3a26dc-5fc4-4455-83d1-daf8d5bbb115",
+          "name": "Get ticket custom fields",
+          "request": {
+            "name": "Get ticket custom fields",
+            "description": {
+              "content": "Get custom field values for a ticket (current desk only).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "tickets",
+                ":ticket_id",
+                "custom-fields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ticket_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9fcc40c3-113b-45bb-8f6a-9816d1b1006b",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tickets",
+                    ":ticket_id",
+                    "custom-fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticket_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"custom_fields\": {\n    \"key_0\": true,\n    \"key_1\": 1774\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2b1e5296-dc6b-4d2b-b74a-f62ee3c988ff",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tickets",
+                    ":ticket_id",
+                    "custom-fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticket_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "63fcb8a4-6bf7-4231-b157-5cd95e433500",
+          "name": "Set ticket custom fields",
+          "request": {
+            "name": "Set ticket custom fields",
+            "description": {
+              "content": "Set custom field values for a ticket (current desk only).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "tickets",
+                ":ticket_id",
+                "custom-fields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ticket_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"custom_fields\": {\n    \"key_0\": 7246,\n    \"key_1\": \"string\",\n    \"key_2\": 5831\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9538d3f9-7887-404c-b074-08258574321d",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tickets",
+                    ":ticket_id",
+                    "custom-fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticket_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"custom_fields\": {\n    \"key_0\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"custom_fields\": {\n    \"key_0\": true,\n    \"key_1\": 1774\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c0ad1060-5394-43ca-b92f-04d6e12e91c7",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tickets",
+                    ":ticket_id",
+                    "custom-fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticket_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"custom_fields\": {\n    \"key_0\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5a1dbbc4-40f5-42a1-bf3c-5c3786e66b4c",
+          "name": "Get ticket activity",
+          "request": {
+            "name": "Get ticket activity",
+            "description": {
+              "content": "Get activity log events for a specific ticket.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "tickets",
+                ":ticket_id",
+                "activity"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Maximum events to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Offset for pagination"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ticket_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7816e9cb-39a5-4891-bb45-4bf13d25d47b",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tickets",
+                    ":ticket_id",
+                    "activity"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticket_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total_count\": 3973,\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"source\": \"string\",\n      \"type\": \"string\",\n      \"time\": \"2022-01-15T02:22:02.367Z\",\n      \"tenant_id\": \"string\",\n      \"data\": {\n        \"actor\": {\n          \"id\": \"string\",\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tags\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"targets\": [\n          {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tags\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"metadata\": {\n          \"key_0\": 3088,\n          \"key_1\": 1652.8089544882896\n        }\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"source\": \"string\",\n      \"type\": \"string\",\n      \"time\": \"2008-10-08T05:24:23.545Z\",\n      \"tenant_id\": \"string\",\n      \"data\": {\n        \"actor\": {\n          \"id\": \"string\",\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tags\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"targets\": [\n          {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tags\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"metadata\": {\n          \"key_0\": false,\n          \"key_1\": 5579\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9040688e-03f8-44e8-8764-8c03ad8527bc",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "tickets",
+                    ":ticket_id",
+                    "activity"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticket_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.harmony.io/service-desk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4cd59114-28be-4e1a-b9e3-00ea7bd7bd57",
+    "name": "service-desk tickets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Manage IT tickets\n\n**Note:** This schema includes only public API endpoints. Internal endpoints are excluded.\n\n**Note:** Internal headers (x-tenant-id, x-employee-id, x-user-id, x-user-email, x-tenant-roles) are excluded from public documentation.",
+      "type": "text/plain"
+    }
+  }
+}

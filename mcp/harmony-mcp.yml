@@ -6,10 +6,8 @@ server:
   name: harmony-service-desk
   transport: http
   url: null
-notes: >-
-  No official hosted/remote Harmony MCP server was found (docs, npm @modelcontextprotocol, MCP
-  registries). This is a candidate tool list derived one-to-one from the public Service Desk
-  OpenAPI operations.
+notes: No official hosted/remote Harmony MCP server was found (docs, npm @modelcontextprotocol, MCP registries).
+  This is a candidate tool list derived one-to-one from the public Service Desk OpenAPI operations.
 tools:
 - name: list_tickets
   description: List tickets with optional filtering and pagination.
@@ -38,3 +36,9 @@ tools:
 - name: set_ticket_custom_fields
   description: Set custom field values for a ticket.
   source_operation: openapi/harmony-service-desk-openapi.json#setTicketCustomFields
+deployment:
+  mode: none
+  verified: derived
+  tools: 9
+  checked: '2026-08-12'
+  source: catalog MCP census

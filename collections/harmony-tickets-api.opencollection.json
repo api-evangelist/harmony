@@ -1,0 +1,280 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "service-desk tickets API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "tickets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List tickets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.harmony.io/service-desk/api/v1/tickets/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "title",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "description",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ticket_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "priority",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "reporter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "assignee",
+                "value": "",
+                "type": "query",
+                "description": "Use '_UNASSIGN_' for unassigned"
+              },
+              {
+                "name": "desk_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "subdesk_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by subdesk (team) IDs"
+              },
+              {
+                "name": "tag_ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tag_names",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "vip_reporter",
+                "value": "",
+                "type": "query",
+                "description": "Filter tickets by VIP status of the reporter employee"
+              },
+              {
+                "name": "location_reporter",
+                "value": "",
+                "type": "query",
+                "description": "Filter tickets by location of the reporter employee"
+              }
+            ]
+          },
+          "docs": "Lists tickets with optional filtering and pagination"
+        },
+        {
+          "info": {
+            "name": "Create a new ticket",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.harmony.io/service-desk/api/v1/tickets/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new support ticket in the system"
+        },
+        {
+          "info": {
+            "name": "Get a ticket by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.harmony.io/service-desk/api/v1/tickets/:ticket_id",
+            "params": [
+              {
+                "name": "ticket_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieves a ticket by ID with extended details including watchers"
+        },
+        {
+          "info": {
+            "name": "Update a ticket",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.harmony.io/service-desk/api/v1/tickets/:ticket_id",
+            "params": [
+              {
+                "name": "ticket_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing ticket with the provided fields"
+        },
+        {
+          "info": {
+            "name": "Query tickets with filters",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.harmony.io/service-desk/api/v1/tickets/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Query tickets with complex filtering including metadata filters"
+        },
+        {
+          "info": {
+            "name": "Bulk update tickets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.harmony.io/service-desk/api/v1/tickets/bulk-update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update multiple tickets with the same values in a single atomic transaction"
+        },
+        {
+          "info": {
+            "name": "Get ticket custom fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.harmony.io/service-desk/api/v1/tickets/:ticket_id/custom-fields",
+            "params": [
+              {
+                "name": "ticket_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get custom field values for a ticket (current desk only)."
+        },
+        {
+          "info": {
+            "name": "Set ticket custom fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.harmony.io/service-desk/api/v1/tickets/:ticket_id/custom-fields",
+            "params": [
+              {
+                "name": "ticket_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set custom field values for a ticket (current desk only)."
+        },
+        {
+          "info": {
+            "name": "Get ticket activity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.harmony.io/service-desk/api/v1/tickets/:ticket_id/activity",
+            "params": [
+              {
+                "name": "ticket_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum events to return"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset for pagination"
+              }
+            ]
+          },
+          "docs": "Get activity log events for a specific ticket."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
