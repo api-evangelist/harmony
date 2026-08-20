@@ -33,6 +33,16 @@ specificationVersion: '0.23'
 created: '2026-07-17'
 modified: '2026-07-19'
 tags:
+- ITSM
+- Service Desk
+- Ticketing
+- Enterprise Service Management
+- AI Agents
+- IT Automation
+- Help Desk
+- Identity
+- Company
+tags_raw:
 - IT Service Management
 - Service Desk
 - Ticketing
@@ -49,6 +59,8 @@ apis:
   humanURL: https://docs.harmony.io/api-references/api-documentation/introduction
   baseURL: https://api.harmony.io/service-desk
   tags:
+  - Tickets
+  tags_raw:
   - tickets
   properties:
   - type: OpenAPI
