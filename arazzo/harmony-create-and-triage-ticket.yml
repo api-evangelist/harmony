@@ -4,8 +4,8 @@ info:
   version: 1.0.0
   summary: Create a service-desk ticket, read it back, triage it, and audit the change.
 sourceDescriptions:
-- name: serviceDesk
-  url: ../openapi/harmony-service-desk-openapi.json
+- name: ticketsApi
+  url: ../openapi/harmony-tickets-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: createAndTriageTicket
