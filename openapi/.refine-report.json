@@ -1,7 +1,7 @@
 {
   "provider": "harmony",
   "sources": [
-    "harmony-tickets-api-openapi.yml"
+    "_original/harmony-service-desk-openapi.json"
   ],
   "outputs": [
     "harmony-tickets-api-openapi.yml"
@@ -9,6 +9,13 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "harmony-service-desk-openapi.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "harmony-service-desk-openapi.json: declared missing tag: tickets",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "harmony-tickets-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

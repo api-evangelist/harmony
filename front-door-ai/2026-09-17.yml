@@ -1,0 +1,30 @@
+# Front Door AI Index — harmony — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: harmony
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.harmony.io
+  final_host: harmony.io
+  ownership: own
+  owner: harmony
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 26
+  host_score: 26
+  density: 22.83
+  words: 1139
+  tiers:
+    agentic: 13
+    core: 13
+    model: 0
+  ambiguous: 30
+  top_terms:
+    agent: 27
+    AI: 13
+    AI agent: 7
+    agentic: 3
+    automation: 3
+    prompts: 3

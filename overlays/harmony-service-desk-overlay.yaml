@@ -28,6 +28,6 @@ actions:
 - target: $.servers
   update:
     x-base-url-template: https://<customer_subdomain>.harmony.io
-notes: >-
+x-notes: >-
   Overlay captures API Evangelist enrichment metadata. It never mutates the harvested original
   OpenAPI; apply with an Overlay 1.0.0 processor to produce an enhanced working copy.
