@@ -68,14 +68,15 @@ tags_raw:
 - Company
 apis:
 - aid: harmony:harmony-tickets-api
-  name: Harmony tickets API
+  name: Harmony Tickets API
   description: The tickets API from Harmony — 6 operation(s) for tickets.
   humanURL: https://docs.harmony.io/api-references/api-documentation/introduction
   baseURL: https://api.harmony.io/service-desk
   tags:
-  - Tickets
+  - Ticketing
   tags_raw:
   - tickets
+  - Tickets
   properties:
   - type: OpenAPI
     url: openapi/harmony-tickets-api-openapi.yml
