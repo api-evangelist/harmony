@@ -492,49 +492,283 @@ paths:
       x-stability: stable
 components:
   schemas:
-    TicketsListResponse:
+    EventData:
       properties:
-        items:
+        actor:
+          $ref: '#/components/schemas/EventEntity'
+          description: The actor that triggered this event
+        targets:
           items:
-            $ref: '#/components/schemas/TicketResponse'
+            $ref: '#/components/schemas/EventEntity'
           type: array
-          title: Items
+          minItems: 1
+          title: Targets
+          description: The target resources affected by this event (at least one)
+        metadata:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Metadata
+      type: object
+      required:
+      - actor
+      - targets
+      title: EventData
+      description: Event data payload with required actor and targets.
+    PaginatedResponseEventsResponse:
+      properties:
         total_count:
           type: integer
           title: Total Count
+          description: The total number of items available to return for this query.
+        items:
+          items:
+            $ref: '#/components/schemas/EventsResponse'
+          type: array
+          title: Items
+          description: Array of returned items.
       type: object
       required:
-      - items
       - total_count
-      title: TicketsListResponse
-    WorkflowMetadata:
+      - items
+      title: PaginatedResponseEventsResponse
+      description: PaginatedResponseEventsResponse
+    CreateTicketRequest:
       properties:
-        workflow_id:
+        title:
           type: string
-          title: Workflow Id
-          description: Workflow instance ID
-        name:
-          type: string
-          title: Name
-          description: Workflow name
+          maxLength: 255
+          minLength: 1
+          title: Title
         description:
           anyOf:
           - type: string
           - type: 'null'
           title: Description
-          description: Workflow description
-        workflow_target:
+        ticket_type:
+          $ref: '#/components/schemas/TicketType'
+        priority:
+          $ref: '#/components/schemas/TicketPriority'
+        source:
+          $ref: '#/components/schemas/TicketSource'
+          default: harmony
+        reporter:
+          type: string
+          title: Reporter
+        assignee:
           anyOf:
           - type: string
           - type: 'null'
-          title: Workflow Target
-          description: Workflow template ID (e.g., 'app-access', 'idp-password-reset')
+          title: Assignee
+        desk_id:
+          type: string
+          maxLength: 60
+          minLength: 1
+          title: Desk Id
+        attachment_ids:
+          items:
+            type: string
+          type: array
+          title: Attachment Ids
+        custom_fields:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Custom Fields
+          description: Custom field values for this desk
+        ticket_metadata:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Ticket Metadata
+          description: Additional metadata for the ticket
+        created_at:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+          title: Created At
+          description: Optional creation timestamp. If not provided, current time will be used. Used for preserving original ITSM timestamps during import.
+        related_asset_ids:
+          anyOf:
+          - items:
+              type: string
+              format: uuid
+            type: array
+          - type: 'null'
+          title: Related Asset Ids
+          description: List of asset IDs (UUIDs) to associate with this ticket
+        publish_events:
+          type: boolean
+          title: Publish Events
+          description: Whether to publish domain events for this ticket creation. Set to False to suppress event publishing (useful for bulk imports or migrations). Defaults to True.
+          default: true
+        thread_id:
+          anyOf:
+          - type: string
+            format: uuid
+          - type: 'null'
+          title: Thread Id
+          description: Optional thread ID to associate with this ticket. If not provided a new thread will be created.
       type: object
       required:
-      - workflow_id
-      - name
-      title: WorkflowMetadata
-      description: Minimal workflow information for tickets.
+      - title
+      - ticket_type
+      - priority
+      - reporter
+      - desk_id
+      title: CreateTicketRequest
+    QueryTicketsRequest:
+      properties:
+        page:
+          type: integer
+          minimum: 1.0
+          title: Page
+          default: 1
+        page_size:
+          type: integer
+          maximum: 200.0
+          minimum: 1.0
+          title: Page Size
+          default: 25
+        sort_by:
+          type: string
+          enum:
+          - title
+          - priority
+          - source
+          - status
+          - created_at
+          - resolution_sla
+          title: Sort By
+          default: created_at
+        sort_direction:
+          type: string
+          enum:
+          - asc
+          - desc
+          title: Sort Direction
+          default: desc
+        title:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Title
+        description:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Description
+        ticket_type:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/TicketType'
+            type: array
+          - type: 'null'
+          title: Ticket Type
+        priority:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/TicketPriority'
+            type: array
+          - type: 'null'
+          title: Priority
+        status:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/TicketStatus'
+            type: array
+          - type: 'null'
+          title: Status
+        reporter:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Reporter
+        assignee:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Assignee
+          description: Use '_UNASSIGN_' for unassigned
+        desk_id:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Desk Id
+        subdesk_id:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Subdesk Id
+          description: Filter by subdesk (team) IDs
+        tag_ids:
+          anyOf:
+          - items:
+              type: integer
+            type: array
+          - type: 'null'
+          title: Tag Ids
+        tag_names:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Tag Names
+        source:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/TicketSource'
+            type: array
+          - type: 'null'
+          title: Source
+        vip_reporter:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Vip Reporter
+          description: Filter tickets by VIP status of the reporter employee
+        location_reporter:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Location Reporter
+          description: Filter tickets by location of the reporter employee
+        metadata_filters:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Metadata Filters
+          description: Filter by ticket metadata key-value pairs
+      type: object
+      title: QueryTicketsRequest
+    TicketSource:
+      type: string
+      enum:
+      - slack
+      - harmony
+      - teams
+      - freshservice
+      - jsm
+      - solarwinds
+      - email
+      - siit
+      title: TicketSource
     EventEntity:
       properties:
         id:
@@ -557,14 +791,161 @@ components:
       - type
       title: EventEntity
       description: Represents the entity in the event can be Actor or Target of the event.
-    UpdateTicketRequest:
+    KBSourceResponse:
       properties:
+        url:
+          type: string
+          title: Url
+          description: URL of the source document
         title:
           anyOf:
           - type: string
-            maxLength: 255
-            minLength: 1
           - type: 'null'
+          title: Title
+          description: Title of the source document
+      type: object
+      required:
+      - url
+      title: KBSourceResponse
+      description: Knowledge base source citation.
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    EventsResponse:
+      properties:
+        id:
+          type: string
+          title: Id
+          description: Event unique identifier
+        source:
+          type: string
+          title: Source
+          description: Event source
+        type:
+          type: string
+          title: Type
+          description: Event type
+        time:
+          type: string
+          format: date-time
+          title: Time
+          description: Event timestamp
+        tenant_id:
+          type: string
+          title: Tenant Id
+          description: Tenant identifier
+        data:
+          anyOf:
+          - $ref: '#/components/schemas/EventData'
+          - type: 'null'
+      type: object
+      required:
+      - id
+      - source
+      - type
+      - time
+      - tenant_id
+      title: EventsResponse
+      description: Events response model matching CloudEvents structure.
+    CustomFieldValuesResponse:
+      properties:
+        custom_fields:
+          additionalProperties: true
+          type: object
+          title: Custom Fields
+          description: Custom field values for the current desk
+      type: object
+      title: CustomFieldValuesResponse
+      description: Response schema for custom field values.
+    TicketPriority:
+      type: string
+      enum:
+      - low
+      - medium
+      - high
+      - urgent
+      title: TicketPriority
+    TicketStatus:
+      type: string
+      enum:
+      - open
+      - in_progress
+      - pending
+      - pending_reporter
+      - pending_approval
+      - pending_internal_team
+      - pending_third_party
+      - resolved
+      - closed
+      - canceled
+      title: TicketStatus
+    TagResponse:
+      properties:
+        id:
+          type: integer
+          title: Id
+        desk_id:
+          type: string
+          title: Desk Id
+        name:
+          type: string
+          title: Name
+        color:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Color
+        description:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Description
+        system_tag:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: System Tag
+        created_at:
+          type: string
+          format: date-time
+          title: Created At
+        updated_at:
+          type: string
+          format: date-time
+          title: Updated At
+      type: object
+      required:
+      - id
+      - desk_id
+      - name
+      - created_at
+      - updated_at
+      title: TagResponse
+    TicketResponse:
+      properties:
+        id:
+          type: string
+          title: Id
+        title:
+          type: string
           title: Title
         description:
           anyOf:
@@ -572,50 +953,45 @@ components:
           - type: 'null'
           title: Description
         ticket_type:
-          anyOf:
-          - $ref: '#/components/schemas/TicketType'
-          - type: 'null'
+          $ref: '#/components/schemas/TicketType'
         priority:
-          anyOf:
-          - $ref: '#/components/schemas/TicketPriority'
-          - type: 'null'
+          $ref: '#/components/schemas/TicketPriority'
+        source:
+          $ref: '#/components/schemas/TicketSource'
         status:
-          anyOf:
-          - $ref: '#/components/schemas/TicketStatus'
-          - type: 'null'
+          $ref: '#/components/schemas/TicketStatus'
+        reporter:
+          type: string
+          title: Reporter
+        created_by:
+          type: string
+          title: Created By
         assignee:
           anyOf:
           - type: string
           - type: 'null'
           title: Assignee
-          description: assignee, to unassign pass in `_UNASSIGN_`
         desk_id:
-          anyOf:
-          - type: string
-            maxLength: 60
-            minLength: 1
-          - type: 'null'
+          type: string
           title: Desk Id
         subdesk_id:
-          anyOf:
-          - type: string
-            maxLength: 60
-            minLength: 1
-          - type: 'null'
+          type: string
           title: Subdesk Id
-          description: Subdesk ID to move ticket to (must be in same desk)
-        notification_reply_id:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Notification Reply Id
+        created_at:
+          type: string
+          format: date-time
+          title: Created At
+        updated_at:
+          type: string
+          format: date-time
+          title: Updated At
         custom_fields:
           anyOf:
           - additionalProperties: true
             type: object
           - type: 'null'
           title: Custom Fields
-          description: Custom field values for the current or new desk
+          description: Custom field values for the current desk
         ticket_metadata:
           anyOf:
           - additionalProperties: true
@@ -623,21 +999,38 @@ components:
           - type: 'null'
           title: Ticket Metadata
           description: Additional metadata for the ticket
-        attachment_ids:
+        kb_resolution:
+          anyOf:
+          - $ref: '#/components/schemas/KBResolutionResponse'
+          - type: 'null'
+          description: Knowledge base resolution suggestion if available
+        workflows:
+          items:
+            $ref: '#/components/schemas/WorkflowMetadata'
+          type: array
+          title: Workflows
+          description: Workflows that match this ticket
+        tags:
+          items:
+            $ref: '#/components/schemas/TagResponse'
+          type: array
+          title: Tags
+        related_asset_ids:
           anyOf:
           - items:
               type: string
+              format: uuid
             type: array
           - type: 'null'
-          title: Attachment Ids
-          description: List of attachment IDs to link to this ticket
-        created_at:
+          title: Related Asset Ids
+          description: List of asset IDs (UUIDs) associated with this ticket
+        thread_id:
           anyOf:
           - type: string
-            format: date-time
+            format: uuid
           - type: 'null'
-          title: Created At
-          description: Optional creation timestamp override. Used for backfilling original ITSM timestamps during re-evaluation.
+          title: Thread Id
+          description: Thread ID for the ticket conversation
         response_sla_deadline:
           anyOf:
           - type: string
@@ -662,13 +1055,88 @@ components:
             format: date-time
           - type: 'null'
           title: Resolution Sla Completed At
-        publish_events:
-          type: boolean
-          title: Publish Events
-          description: Whether to publish domain events for this ticket update. Set to False to suppress event publishing (useful for bulk imports or migrations). Defaults to True. This suppresses ALL events including status changes, assignee changes, and survey triggers.
-          default: true
       type: object
-      title: UpdateTicketRequest
+      required:
+      - id
+      - title
+      - ticket_type
+      - priority
+      - source
+      - status
+      - reporter
+      - created_by
+      - desk_id
+      - subdesk_id
+      - created_at
+      - updated_at
+      - custom_fields
+      title: TicketResponse
+    AttachmentUploadStatus:
+      type: string
+      enum:
+      - pending
+      - uploaded
+      - failed
+      title: AttachmentUploadStatus
+    EntityType:
+      type: string
+      enum:
+      - user
+      - ticket
+      - asset
+      - application
+      - employee
+      - system
+      - workflow
+      title: EntityType
+      description: Supported entity types in the Harmony platform (actors and targets).
+    BulkUpdateTicketsResponse:
+      properties:
+        updated_count:
+          type: integer
+          title: Updated Count
+          description: Number of tickets successfully updated
+      type: object
+      required:
+      - updated_count
+      title: BulkUpdateTicketsResponse
+    EventTag:
+      properties:
+        key:
+          type: string
+          minLength: 1
+          title: Key
+          description: Tag key identifier
+        value:
+          type: string
+          minLength: 1
+          title: Value
+          description: Tag value (string only)
+      type: object
+      required:
+      - key
+      - value
+      title: EventTag
+      description: Represents a tag with key-value structure.
+    CustomFieldValuesRequest:
+      properties:
+        custom_fields:
+          additionalProperties: true
+          type: object
+          title: Custom Fields
+          description: Custom field values as key-value pairs for the current desk
+      type: object
+      required:
+      - custom_fields
+      title: CustomFieldValuesRequest
+      description: Request schema for setting custom field values on a ticket.
+    TicketType:
+      type: string
+      enum:
+      - request
+      - incident
+      - question
+      title: TicketType
     TicketDetailResponse:
       properties:
         id:
@@ -811,223 +1279,62 @@ components:
       - updated_at
       - custom_fields
       title: TicketDetailResponse
-    PaginatedResponseEventsResponse:
+    TicketsListResponse:
       properties:
+        items:
+          items:
+            $ref: '#/components/schemas/TicketResponse'
+          type: array
+          title: Items
         total_count:
           type: integer
           title: Total Count
-          description: The total number of items available to return for this query.
-        items:
-          items:
-            $ref: '#/components/schemas/EventsResponse'
-          type: array
-          title: Items
-          description: Array of returned items.
       type: object
       required:
-      - total_count
       - items
-      title: PaginatedResponseEventsResponse
-      description: PaginatedResponseEventsResponse
-    QueryTicketsRequest:
+      - total_count
+      title: TicketsListResponse
+    HTTPValidationError:
       properties:
-        page:
-          type: integer
-          minimum: 1.0
-          title: Page
-          default: 1
-        page_size:
-          type: integer
-          maximum: 200.0
-          minimum: 1.0
-          title: Page Size
-          default: 25
-        sort_by:
-          type: string
-          enum:
-          - title
-          - priority
-          - source
-          - status
-          - created_at
-          - resolution_sla
-          title: Sort By
-          default: created_at
-        sort_direction:
-          type: string
-          enum:
-          - asc
-          - desc
-          title: Sort Direction
-          default: desc
-        title:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Title
-        description:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Description
-        ticket_type:
-          anyOf:
-          - items:
-              $ref: '#/components/schemas/TicketType'
-            type: array
-          - type: 'null'
-          title: Ticket Type
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    BulkUpdateTicketsRequest:
+      properties:
+        ticket_ids:
+          items:
+            type: string
+          type: array
+          minItems: 1
+          title: Ticket Ids
+          description: List of ticket IDs to update
         priority:
           anyOf:
-          - items:
-              $ref: '#/components/schemas/TicketPriority'
-            type: array
+          - $ref: '#/components/schemas/TicketPriority'
           - type: 'null'
-          title: Priority
         status:
           anyOf:
-          - items:
-              $ref: '#/components/schemas/TicketStatus'
-            type: array
+          - $ref: '#/components/schemas/TicketStatus'
           - type: 'null'
-          title: Status
-        reporter:
-          anyOf:
-          - items:
-              type: string
-            type: array
-          - type: 'null'
-          title: Reporter
         assignee:
-          anyOf:
-          - items:
-              type: string
-            type: array
-          - type: 'null'
-          title: Assignee
-          description: Use '_UNASSIGN_' for unassigned
-        desk_id:
-          anyOf:
-          - items:
-              type: string
-            type: array
-          - type: 'null'
-          title: Desk Id
-        subdesk_id:
-          anyOf:
-          - items:
-              type: string
-            type: array
-          - type: 'null'
-          title: Subdesk Id
-          description: Filter by subdesk (team) IDs
-        tag_ids:
-          anyOf:
-          - items:
-              type: integer
-            type: array
-          - type: 'null'
-          title: Tag Ids
-        tag_names:
-          anyOf:
-          - items:
-              type: string
-            type: array
-          - type: 'null'
-          title: Tag Names
-        source:
-          anyOf:
-          - items:
-              $ref: '#/components/schemas/TicketSource'
-            type: array
-          - type: 'null'
-          title: Source
-        vip_reporter:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Vip Reporter
-          description: Filter tickets by VIP status of the reporter employee
-        location_reporter:
-          anyOf:
-          - items:
-              type: string
-            type: array
-          - type: 'null'
-          title: Location Reporter
-          description: Filter tickets by location of the reporter employee
-        metadata_filters:
-          anyOf:
-          - additionalProperties: true
-            type: object
-          - type: 'null'
-          title: Metadata Filters
-          description: Filter by ticket metadata key-value pairs
-      type: object
-      title: QueryTicketsRequest
-    AttachmentResponse:
-      properties:
-        id:
-          type: string
-          title: Id
-        filename:
-          type: string
-          title: Filename
-        content_type:
-          type: string
-          title: Content Type
-        file_size:
-          type: integer
-          title: File Size
-        upload_status:
-          $ref: '#/components/schemas/AttachmentUploadStatus'
-        created_at:
-          type: string
-          format: date-time
-          title: Created At
-        updated_at:
-          type: string
-          format: date-time
-          title: Updated At
-      type: object
-      required:
-      - id
-      - filename
-      - content_type
-      - file_size
-      - upload_status
-      - created_at
-      - updated_at
-      title: AttachmentResponse
-    KBSourceResponse:
-      properties:
-        url:
-          type: string
-          title: Url
-          description: URL of the source document
-        title:
           anyOf:
           - type: string
           - type: 'null'
-          title: Title
-          description: Title of the source document
+          title: Assignee
+          description: Use '_UNASSIGN_' to unassign
+        publish_events:
+          type: boolean
+          title: Publish Events
+          description: Whether to publish domain events for these ticket updates. Set to False to suppress event publishing (useful for bulk imports or migrations). Defaults to True. This suppresses ALL events including status changes, assignee changes, and survey triggers.
+          default: true
       type: object
       required:
-      - url
-      title: KBSourceResponse
-      description: Knowledge base source citation.
-    TicketSource:
-      type: string
-      enum:
-      - slack
-      - harmony
-      - teams
-      - freshservice
-      - jsm
-      - solarwinds
-      - email
-      - siit
-      title: TicketSource
+      - ticket_ids
+      title: BulkUpdateTicketsRequest
     KBResolutionResponse:
       properties:
         answer_summary:
@@ -1064,6 +1371,146 @@ components:
       - queried_at
       title: KBResolutionResponse
       description: Knowledge base resolution suggestion for a ticket.
+    UpdateTicketRequest:
+      properties:
+        title:
+          anyOf:
+          - type: string
+            maxLength: 255
+            minLength: 1
+          - type: 'null'
+          title: Title
+        description:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Description
+        ticket_type:
+          anyOf:
+          - $ref: '#/components/schemas/TicketType'
+          - type: 'null'
+        priority:
+          anyOf:
+          - $ref: '#/components/schemas/TicketPriority'
+          - type: 'null'
+        status:
+          anyOf:
+          - $ref: '#/components/schemas/TicketStatus'
+          - type: 'null'
+        assignee:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Assignee
+          description: assignee, to unassign pass in `_UNASSIGN_`
+        desk_id:
+          anyOf:
+          - type: string
+            maxLength: 60
+            minLength: 1
+          - type: 'null'
+          title: Desk Id
+        subdesk_id:
+          anyOf:
+          - type: string
+            maxLength: 60
+            minLength: 1
+          - type: 'null'
+          title: Subdesk Id
+          description: Subdesk ID to move ticket to (must be in same desk)
+        notification_reply_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Notification Reply Id
+        custom_fields:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Custom Fields
+          description: Custom field values for the current or new desk
+        ticket_metadata:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Ticket Metadata
+          description: Additional metadata for the ticket
+        attachment_ids:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Attachment Ids
+          description: List of attachment IDs to link to this ticket
+        created_at:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+          title: Created At
+          description: Optional creation timestamp override. Used for backfilling original ITSM timestamps during re-evaluation.
+        response_sla_deadline:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+          title: Response Sla Deadline
+        response_sla_completed_at:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+          title: Response Sla Completed At
+        resolution_sla_deadline:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+          title: Resolution Sla Deadline
+        resolution_sla_completed_at:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+          title: Resolution Sla Completed At
+        publish_events:
+          type: boolean
+          title: Publish Events
+          description: Whether to publish domain events for this ticket update. Set to False to suppress event publishing (useful for bulk imports or migrations). Defaults to True. This suppresses ALL events including status changes, assignee changes, and survey triggers.
+          default: true
+      type: object
+      title: UpdateTicketRequest
+    WorkflowMetadata:
+      properties:
+        workflow_id:
+          type: string
+          title: Workflow Id
+          description: Workflow instance ID
+        name:
+          type: string
+          title: Name
+          description: Workflow name
+        description:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Description
+          description: Workflow description
+        workflow_target:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Workflow Target
+          description: Workflow template ID (e.g., 'app-access', 'idp-password-reset')
+      type: object
+      required:
+      - workflow_id
+      - name
+      title: WorkflowMetadata
+      description: Minimal workflow information for tickets.
     WatcherResponse:
       properties:
         id:
@@ -1094,461 +1541,22 @@ components:
       - created_at
       - updated_at
       title: WatcherResponse
-    EventData:
-      properties:
-        actor:
-          $ref: '#/components/schemas/EventEntity'
-          description: The actor that triggered this event
-        targets:
-          items:
-            $ref: '#/components/schemas/EventEntity'
-          type: array
-          minItems: 1
-          title: Targets
-          description: The target resources affected by this event (at least one)
-        metadata:
-          anyOf:
-          - additionalProperties: true
-            type: object
-          - type: 'null'
-          title: Metadata
-      type: object
-      required:
-      - actor
-      - targets
-      title: EventData
-      description: Event data payload with required actor and targets.
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    TicketPriority:
-      type: string
-      enum:
-      - low
-      - medium
-      - high
-      - urgent
-      title: TicketPriority
-    CreateTicketRequest:
-      properties:
-        title:
-          type: string
-          maxLength: 255
-          minLength: 1
-          title: Title
-        description:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Description
-        ticket_type:
-          $ref: '#/components/schemas/TicketType'
-        priority:
-          $ref: '#/components/schemas/TicketPriority'
-        source:
-          $ref: '#/components/schemas/TicketSource'
-          default: harmony
-        reporter:
-          type: string
-          title: Reporter
-        assignee:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Assignee
-        desk_id:
-          type: string
-          maxLength: 60
-          minLength: 1
-          title: Desk Id
-        attachment_ids:
-          items:
-            type: string
-          type: array
-          title: Attachment Ids
-        custom_fields:
-          anyOf:
-          - additionalProperties: true
-            type: object
-          - type: 'null'
-          title: Custom Fields
-          description: Custom field values for this desk
-        ticket_metadata:
-          anyOf:
-          - additionalProperties: true
-            type: object
-          - type: 'null'
-          title: Ticket Metadata
-          description: Additional metadata for the ticket
-        created_at:
-          anyOf:
-          - type: string
-            format: date-time
-          - type: 'null'
-          title: Created At
-          description: Optional creation timestamp. If not provided, current time will be used. Used for preserving original ITSM timestamps during import.
-        related_asset_ids:
-          anyOf:
-          - items:
-              type: string
-              format: uuid
-            type: array
-          - type: 'null'
-          title: Related Asset Ids
-          description: List of asset IDs (UUIDs) to associate with this ticket
-        publish_events:
-          type: boolean
-          title: Publish Events
-          description: Whether to publish domain events for this ticket creation. Set to False to suppress event publishing (useful for bulk imports or migrations). Defaults to True.
-          default: true
-        thread_id:
-          anyOf:
-          - type: string
-            format: uuid
-          - type: 'null'
-          title: Thread Id
-          description: Optional thread ID to associate with this ticket. If not provided a new thread will be created.
-      type: object
-      required:
-      - title
-      - ticket_type
-      - priority
-      - reporter
-      - desk_id
-      title: CreateTicketRequest
-    EventTag:
-      properties:
-        key:
-          type: string
-          minLength: 1
-          title: Key
-          description: Tag key identifier
-        value:
-          type: string
-          minLength: 1
-          title: Value
-          description: Tag value (string only)
-      type: object
-      required:
-      - key
-      - value
-      title: EventTag
-      description: Represents a tag with key-value structure.
-    BulkUpdateTicketsRequest:
-      properties:
-        ticket_ids:
-          items:
-            type: string
-          type: array
-          minItems: 1
-          title: Ticket Ids
-          description: List of ticket IDs to update
-        priority:
-          anyOf:
-          - $ref: '#/components/schemas/TicketPriority'
-          - type: 'null'
-        status:
-          anyOf:
-          - $ref: '#/components/schemas/TicketStatus'
-          - type: 'null'
-        assignee:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Assignee
-          description: Use '_UNASSIGN_' to unassign
-        publish_events:
-          type: boolean
-          title: Publish Events
-          description: Whether to publish domain events for these ticket updates. Set to False to suppress event publishing (useful for bulk imports or migrations). Defaults to True. This suppresses ALL events including status changes, assignee changes, and survey triggers.
-          default: true
-      type: object
-      required:
-      - ticket_ids
-      title: BulkUpdateTicketsRequest
-    TicketType:
-      type: string
-      enum:
-      - request
-      - incident
-      - question
-      title: TicketType
-    AttachmentUploadStatus:
-      type: string
-      enum:
-      - pending
-      - uploaded
-      - failed
-      title: AttachmentUploadStatus
-    EntityType:
-      type: string
-      enum:
-      - user
-      - ticket
-      - asset
-      - application
-      - employee
-      - system
-      - workflow
-      title: EntityType
-      description: Supported entity types in the Harmony platform (actors and targets).
-    TicketResponse:
+    AttachmentResponse:
       properties:
         id:
           type: string
           title: Id
-        title:
+        filename:
           type: string
-          title: Title
-        description:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Description
-        ticket_type:
-          $ref: '#/components/schemas/TicketType'
-        priority:
-          $ref: '#/components/schemas/TicketPriority'
-        source:
-          $ref: '#/components/schemas/TicketSource'
-        status:
-          $ref: '#/components/schemas/TicketStatus'
-        reporter:
+          title: Filename
+        content_type:
           type: string
-          title: Reporter
-        created_by:
-          type: string
-          title: Created By
-        assignee:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Assignee
-        desk_id:
-          type: string
-          title: Desk Id
-        subdesk_id:
-          type: string
-          title: Subdesk Id
-        created_at:
-          type: string
-          format: date-time
-          title: Created At
-        updated_at:
-          type: string
-          format: date-time
-          title: Updated At
-        custom_fields:
-          anyOf:
-          - additionalProperties: true
-            type: object
-          - type: 'null'
-          title: Custom Fields
-          description: Custom field values for the current desk
-        ticket_metadata:
-          anyOf:
-          - additionalProperties: true
-            type: object
-          - type: 'null'
-          title: Ticket Metadata
-          description: Additional metadata for the ticket
-        kb_resolution:
-          anyOf:
-          - $ref: '#/components/schemas/KBResolutionResponse'
-          - type: 'null'
-          description: Knowledge base resolution suggestion if available
-        workflows:
-          items:
-            $ref: '#/components/schemas/WorkflowMetadata'
-          type: array
-          title: Workflows
-          description: Workflows that match this ticket
-        tags:
-          items:
-            $ref: '#/components/schemas/TagResponse'
-          type: array
-          title: Tags
-        related_asset_ids:
-          anyOf:
-          - items:
-              type: string
-              format: uuid
-            type: array
-          - type: 'null'
-          title: Related Asset Ids
-          description: List of asset IDs (UUIDs) associated with this ticket
-        thread_id:
-          anyOf:
-          - type: string
-            format: uuid
-          - type: 'null'
-          title: Thread Id
-          description: Thread ID for the ticket conversation
-        response_sla_deadline:
-          anyOf:
-          - type: string
-            format: date-time
-          - type: 'null'
-          title: Response Sla Deadline
-        response_sla_completed_at:
-          anyOf:
-          - type: string
-            format: date-time
-          - type: 'null'
-          title: Response Sla Completed At
-        resolution_sla_deadline:
-          anyOf:
-          - type: string
-            format: date-time
-          - type: 'null'
-          title: Resolution Sla Deadline
-        resolution_sla_completed_at:
-          anyOf:
-          - type: string
-            format: date-time
-          - type: 'null'
-          title: Resolution Sla Completed At
-      type: object
-      required:
-      - id
-      - title
-      - ticket_type
-      - priority
-      - source
-      - status
-      - reporter
-      - created_by
-      - desk_id
-      - subdesk_id
-      - created_at
-      - updated_at
-      - custom_fields
-      title: TicketResponse
-    CustomFieldValuesResponse:
-      properties:
-        custom_fields:
-          additionalProperties: true
-          type: object
-          title: Custom Fields
-          description: Custom field values for the current desk
-      type: object
-      title: CustomFieldValuesResponse
-      description: Response schema for custom field values.
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    TicketStatus:
-      type: string
-      enum:
-      - open
-      - in_progress
-      - pending
-      - pending_reporter
-      - pending_approval
-      - pending_internal_team
-      - pending_third_party
-      - resolved
-      - closed
-      - canceled
-      title: TicketStatus
-    CustomFieldValuesRequest:
-      properties:
-        custom_fields:
-          additionalProperties: true
-          type: object
-          title: Custom Fields
-          description: Custom field values as key-value pairs for the current desk
-      type: object
-      required:
-      - custom_fields
-      title: CustomFieldValuesRequest
-      description: Request schema for setting custom field values on a ticket.
-    EventsResponse:
-      properties:
-        id:
-          type: string
-          title: Id
-          description: Event unique identifier
-        source:
-          type: string
-          title: Source
-          description: Event source
-        type:
-          type: string
-          title: Type
-          description: Event type
-        time:
-          type: string
-          format: date-time
-          title: Time
-          description: Event timestamp
-        tenant_id:
-          type: string
-          title: Tenant Id
-          description: Tenant identifier
-        data:
-          anyOf:
-          - $ref: '#/components/schemas/EventData'
-          - type: 'null'
-      type: object
-      required:
-      - id
-      - source
-      - type
-      - time
-      - tenant_id
-      title: EventsResponse
-      description: Events response model matching CloudEvents structure.
-    TagResponse:
-      properties:
-        id:
+          title: Content Type
+        file_size:
           type: integer
-          title: Id
-        desk_id:
-          type: string
-          title: Desk Id
-        name:
-          type: string
-          title: Name
-        color:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Color
-        description:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Description
-        system_tag:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: System Tag
+          title: File Size
+        upload_status:
+          $ref: '#/components/schemas/AttachmentUploadStatus'
         created_at:
           type: string
           format: date-time
@@ -1560,21 +1568,13 @@ components:
       type: object
       required:
       - id
-      - desk_id
-      - name
+      - filename
+      - content_type
+      - file_size
+      - upload_status
       - created_at
       - updated_at
-      title: TagResponse
-    BulkUpdateTicketsResponse:
-      properties:
-        updated_count:
-          type: integer
-          title: Updated Count
-          description: Number of tickets successfully updated
-      type: object
-      required:
-      - updated_count
-      title: BulkUpdateTicketsResponse
+      title: AttachmentResponse
   securitySchemes:
     HTTPBearer:
       type: http
