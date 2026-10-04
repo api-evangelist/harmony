@@ -46,6 +46,9 @@ image: https://harmony.io/favicon.ico
 specificationVersion: '0.23'
 created: '2026-07-17'
 modified: '2026-07-19'
+x-docs-platform: gitbook
+x-docs-platform-confidence: high
+x-docs-platform-checked: 2026-10-03
 tags:
 - ITSM
 - Service Desk
@@ -98,6 +101,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: CapabilityMap
+  url: capabilities/harmony-capability-edges.yml
+  name: Harmony Business Capability Map
 - type: Website
   url: https://www.harmony.io/
 - type: X-MCPServerCandidate
