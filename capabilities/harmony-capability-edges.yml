@@ -1,0 +1,26 @@
+slug: harmony
+provider: Harmony
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Tickets
+  spec_file: harmony-tickets-api-openapi.yml
+  capability_id: BC-600.30
+  capability_id_l1: BC-600
+  capability_name: IT Service Management
+  confidence: 0.88
+  evidence: openapi description "Manage IT tickets"; POST /api/v1/tickets/ "Create a new ticket"; schemas
+    TicketPriority, TicketStatus, TicketType
+  reason: The operations create, update, query and audit service-desk tickets with priority/status/type,
+    which is the incident and service-request core of IT Service Management. The spec explicitly scopes
+    it to IT tickets, though the platform also covers HR/finance requests, so a touch below 0.95.
