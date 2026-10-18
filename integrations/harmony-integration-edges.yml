@@ -3,7 +3,10 @@ method: searched
 checked:
 - https://azuremarketplace.microsoft.com/
 - https://github.com/marketplace?type=apps
+- monday-com/integrations/monday-com-integration-edges.yml
 - okta/integrations/okta-integration-edges.yml
+- slack/integrations/slack-integration-edges.yml
+- zoom/integrations/zoom-integration-edges.yml
 marketplace_apps: []
 edges:
 - partner_name: Microsoft Azure Marketplace
@@ -66,5 +69,56 @@ edges:
   - GROUP_PUSH
   - SAML
   - UPDATE
+- partner_name: Monday.com (own)
+  partner: monday-com
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://monday.com/marketplace/listing/10001263
+  mirror_of: monday-com/integrations/monday-com-integration-edges.yml
+  apps:
+  - Harmony
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: monday.com app
+- partner_name: Slack (own)
+  partner: slack
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://slack.com/marketplace/A097ABKQC2E-harmony
+  mirror_of: slack/integrations/slack-integration-edges.yml
+  apps:
+  - Harmony
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Slack app
+- partner_name: Zoom (own)
+  partner: zoom
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://marketplace.zoom.us/apps/6IKZfrePRPaVk_tDhTFmlw
+  mirror_of: zoom/integrations/zoom-integration-edges.yml
+  apps:
+  - Harmony
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Zoom app
 source:
 - https://github.com/marketplace?type=apps
