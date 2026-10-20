@@ -24,24 +24,6 @@ edges:
   seller_name: Harmony IT
   detected_by: sweep-cloud-marketplaces.py
   detected: '2026-10-13'
-- partner_name: GitHub Marketplace (apps)
-  partner: github
-  partner_match: aggregator
-  type: marketplace
-  marketplace: github-apps
-  channel: partner-built
-  relationship: platform-app
-  direction: third-party
-  evidence: https://github.com/marketplace/harmony-it
-  listing_count: 1
-  apps:
-  - Harmony IT
-  publisher_name: Harmony
-  badges:
-  - Verified creator
-  - Verified domain
-  detected_by: sweep-devtools.py
-  detected: '2026-10-14'
 - partner_name: Okta (own)
   partner: okta
   partner_match: mirror

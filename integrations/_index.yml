@@ -15,18 +15,6 @@
   relationship: distribution-channel
   status: not-a-workflow
   arazzo: null
-- slug: harmony-github-marketplace-apps
-  label: GitHub Marketplace (apps)
-  partner: github
-  partner_name: GitHub Marketplace (apps)
-  type: marketplace
-  marketplace: github-apps
-  channel: partner-built
-  evidence: https://github.com/marketplace/harmony-it
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
 - slug: harmony-okta-own
   label: Okta (own)
   partner: okta
