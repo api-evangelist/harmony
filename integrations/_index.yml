@@ -67,3 +67,15 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
+- slug: harmony-github-own
+  label: GitHub (own)
+  partner: github
+  partner_name: GitHub (own)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://github.com/marketplace/harmony-it
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null

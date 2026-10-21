@@ -7,6 +7,7 @@ checked:
 - okta/integrations/okta-integration-edges.yml
 - slack/integrations/slack-integration-edges.yml
 - zoom/integrations/zoom-integration-edges.yml
+- github/integrations/github-integration-edges.yml
 marketplace_apps: []
 edges:
 - partner_name: Microsoft Azure Marketplace
@@ -102,5 +103,27 @@ edges:
   detected: '2026-10-18'
   detected_by: mirror-platform-listings.py
   category: Zoom app
+- partner_name: GitHub (own)
+  partner: github
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://github.com/marketplace/harmony-it
+  mirror_of: github/integrations/github-integration-edges.yml
+  apps:
+  - Harmony IT
+  listing_count: 1
+  detected: '2026-10-21'
+  detected_by: mirror-platform-listings.py
+  badges:
+  - Verified publisher
+  - Verified domain
+  publisher_verified:
+  - Verified publisher
+  - Verified domain
 source:
 - https://github.com/marketplace?type=apps
